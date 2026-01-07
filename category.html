@@ -66,16 +66,20 @@
                 </div>
                 <h2 class="text-xl font-bold tracking-tight text-white">AI Insider</h2>
             </a>
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-                <a href="category.html?type=Robotics" class="hover:text-primary transition-colors">Robotics</a>
-                <a href="category.html?type=Machine Learning" class="hover:text-primary transition-colors">Machine
-                    Learning</a>
-                <a href="category.html?type=Generative AI" class="hover:text-primary transition-colors">Generative
-                    AI</a>
+            <nav class="hidden lg:flex items-center gap-6">
+                <a class="text-sm font-medium hover:text-primary transition-colors text-slate-400"
+                    href="index.html">Home</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="category.html?type=Machine Learning">Machine Learning</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="category.html?type=Generative AI">Generative AI</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="category.html?type=Robotics">Robotics</a>
+                <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
+                    href="category.html?type=Safety & Ethics">Safety & Ethics</a>
             </nav>
             <button
-                class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/20">Subscribe</button>
+                class="hidden sm:block h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all">Subscribe</button>
         </div>
     </header>
 
@@ -91,6 +95,80 @@
             <!-- Dynamic cards here -->
         </div>
     </main>
+    <!-- Footer -->
+    <footer class="border-t border-card-border bg-[#0a0f18] mt-20">
+        <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <div class="flex flex-col gap-6">
+                    <a class="flex items-center gap-2" href="index.html">
+                        <div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white">
+                            <span class="material-symbols-outlined text-[20px]">neurology</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white">AI Insider</h2>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        The world's leading source for AI news, research analysis, and product reviews. Built for the
+                        future of intelligence.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
+                            <span class="text-sm font-bold">X</span>
+                        </a>
+                        <a href="#"
+                            class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
+                            <span class="text-sm font-bold">In</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Categories</h4>
+                    <ul class="flex flex-col gap-3 text-sm text-slate-400">
+                        <li><a href="category.html?type=Machine Learning"
+                                class="hover:text-primary transition-colors font-medium">Machine Learning</a></li>
+                        <li><a href="category.html?type=Generative AI"
+                                class="hover:text-primary transition-colors font-medium">Generative AI</a></li>
+                        <li><a href="category.html?type=Robotics"
+                                class="hover:text-primary transition-colors font-medium">Robotics</a></li>
+                        <li><a href="category.html?type=Safety & Ethics"
+                                class="hover:text-primary transition-colors font-medium">Safety & Ethics</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Resources</h4>
+                    <ul class="flex flex-col gap-3 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">News Archive</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">API for Builders</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">Brand Assets</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">Newsletter Settings</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6 text-lg">Support</h4>
+                    <ul class="flex flex-col gap-3 text-sm text-slate-400">
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">About Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">Terms of Service</a>
+                        </li>
+                        <li><a href="#" class="hover:text-primary transition-colors font-medium">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-card-border flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs">© 2026 AI Insider News. All rights reserved.</p>
+                <div class="flex gap-8 text-xs text-slate-500">
+                    <a href="#" class="hover:text-white transition-colors">Cookie Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Do Not Sell My Info</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/main.js"></script>
 </body>

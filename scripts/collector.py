@@ -25,7 +25,7 @@ CONFIG = {
         "Robotics": ["robot", "humanoid", "boston dynamics", "tesla bot"],
         "Machine Learning": ["neural network", "transformer", "sparse", "training", "compute"],
         "Generative AI": ["llm", "gpt", "claude", "stable diffusion", "midjourney", "sora"],
-        "Policy": ["regulation", "act", "ethics", "law", "policy", "safety"]
+        "Safety & Ethics": ["regulation", "act", "ethics", "law", "policy", "safety", "alignment", "bias", "fairness"]
     },
     "db_path": os.path.join(os.path.dirname(__file__), "../js/data.json")
 }
