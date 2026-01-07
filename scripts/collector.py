@@ -19,7 +19,7 @@ CONFIG = {
         "Generative AI": ["llm", "gpt", "claude", "stable diffusion", "midjourney", "sora"],
         "Policy": ["regulation", "act", "ethics", "law", "policy", "safety"]
     },
-    "db_path": os.path.join(os.path.dirname(__file__), "../src/js/data.json")
+    "db_path": os.path.join(os.path.dirname(__file__), "../js/data.json")
 }
 
 def clean_text(text):

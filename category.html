@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AI Insider - Category</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-dark": "#101622",
+                        "card-dark": "#161e2d",
+                        "card-border": "#232f48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #232f48;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark text-slate-300 font-body antialiased selection:bg-primary/30">
+    <header class="sticky top-0 z-50 w-full border-b border-card-border bg-background-dark/80 glass-nav">
+        <div class="w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a class="flex items-center gap-2 group" href="index.html">
+                <div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-[20px]">neurology</span>
+                </div>
+                <h2 class="text-xl font-bold tracking-tight text-white">AI Insider</h2>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="category.html?type=Robotics" class="hover:text-primary transition-colors">Robotics</a>
+                <a href="category.html?type=Machine Learning" class="hover:text-primary transition-colors">Machine
+                    Learning</a>
+                <a href="category.html?type=Generative AI" class="hover:text-primary transition-colors">Generative
+                    AI</a>
+            </nav>
+            <button
+                class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/20">Subscribe</button>
+        </div>
+    </header>
+
+    <main class="w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-12">
+        <div class="flex flex-col gap-4 mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold text-white font-display" id="category-title">Loading Category...
+            </h1>
+            <p class="text-xl text-slate-500 max-w-2xl" id="category-description">Exploring the latest breakthroughs and
+                trends in AI.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="category-grid">
+            <!-- Dynamic cards here -->
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

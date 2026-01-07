@@ -102,3 +102,32 @@ if (window.location.pathname.includes('article.html')) {
             });
     }
 }
+
+// Category Page Logic
+if (window.location.pathname.includes('category.html')) {
+    const params = new URLSearchParams(window.location.search);
+    const catType = params.get('type') || 'AI News';
+
+    const titleEl = document.getElementById('category-title');
+    if (titleEl) titleEl.textContent = catType;
+    document.title = `${catType} - AI Insider News`;
+
+    const catGrid = document.getElementById('category-grid');
+    if (catGrid) {
+        fetch('js/data.json')
+            .then(res => res.json())
+            .then(data => {
+                const filtered = data.filter(a => a.category === catType || catType === 'AI News');
+                catGrid.innerHTML = '';
+
+                if (filtered.length === 0) {
+                    catGrid.innerHTML = '<p class="text-slate-500 col-span-full py-20 text-center">No articles found in this category yet.</p>';
+                }
+
+                filtered.forEach(item => {
+                    const card = createNewsCard(item);
+                    catGrid.appendChild(card);
+                });
+            });
+    }
+}
