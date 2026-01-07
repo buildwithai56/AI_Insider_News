@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics Dashboard - TechNews Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#232f48", // Extracted from provided components
+                        "text-secondary": "#92a4c9", // Extracted from provided components
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better look in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111722; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden antialiased">
+<div class="relative flex h-screen w-full bg-background-light dark:bg-[#111722] overflow-hidden">
+<!-- Sidebar -->
+<aside class="flex w-64 flex-col border-r border-[#232f48] bg-[#111722] h-full flex-shrink-0 hidden lg:flex">
+<div class="flex flex-col h-full justify-between p-4">
+<div class="flex flex-col gap-4">
+<div class="flex gap-3 items-center mb-4">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10 flex-shrink-0" data-alt="Abstract blue tech logo" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5NDjuER-cTj7HBTeA_Fp_d--SCNbMlcPvQSH1fMB0PGUmko0RBRg0TxOlCN0A8TYLghK67-AQkq-rx9zo2aL9-fJiU60fdihl0FfPy6dvvMQbHr55_Qm63DhKCq93bjyHYZV-Kxz9pClztLxaKdLfj6tnNx8nzCePkmA_wrsH9h4s8OEmbon8TiFfu0eE-dmsd5seIWDjVG3e4_YwTbjzqobs0Ocy3l1DUZOaEgZSymDQ7Rk7nfrrPmACWyrkXtxVk57wShl5P94j");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-medium leading-normal">TechNews Admin</h1>
+<p class="text-[#92a4c9] text-xs font-normal leading-normal">v2.4.0</p>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-[#92a4c9] group-hover:text-white" style="font-size: 24px;">dashboard</span>
+<p class="text-[#92a4c9] group-hover:text-white text-sm font-medium leading-normal">Dashboard</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-[#92a4c9] group-hover:text-white" style="font-size: 24px;">description</span>
+<p class="text-[#92a4c9] group-hover:text-white text-sm font-medium leading-normal">Content Management</p>
+</div>
+<!-- Active State -->
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/20 border border-primary/10">
+<span class="material-symbols-outlined text-primary" style="font-size: 24px; font-variation-settings: 'FILL' 1;">analytics</span>
+<p class="text-white text-sm font-medium leading-normal">Analytics</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-[#92a4c9] group-hover:text-white" style="font-size: 24px;">group</span>
+<p class="text-[#92a4c9] group-hover:text-white text-sm font-medium leading-normal">User Base</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-[#92a4c9] group-hover:text-white" style="font-size: 24px;">settings</span>
+<p class="text-[#92a4c9] group-hover:text-white text-sm font-medium leading-normal">Settings</p>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 mt-auto rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-[#92a4c9]" style="font-size: 24px;">logout</span>
+<p class="text-[#92a4c9] text-sm font-medium leading-normal">Logout</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- Top Nav -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#232f48] bg-[#111722] px-6 py-3 flex-shrink-0 z-10">
+<div class="flex items-center gap-4 text-white lg:hidden">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<!-- Search -->
+<div class="flex flex-1 max-w-xl mx-auto hidden md:flex px-4">
+<div class="flex w-full items-stretch rounded-lg h-10 bg-[#232f48] border border-[#232f48] focus-within:border-primary/50 transition-colors">
+<div class="text-[#92a4c9] flex items-center justify-center pl-3">
+<span class="material-symbols-outlined" style="font-size: 20px;">search</span>
+</div>
+<input class="w-full bg-transparent border-none text-white focus:ring-0 placeholder:text-[#92a4c9] text-sm" placeholder="Search analytics data..."/>
+</div>
+</div>
+<div class="flex items-center justify-end gap-4 ml-auto">
+<button class="flex items-center justify-center rounded-lg size-10 hover:bg-[#232f48] text-[#92a4c9] hover:text-white transition-colors">
+<span class="material-symbols-outlined" style="font-size: 22px;">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg size-10 hover:bg-[#232f48] text-[#92a4c9] hover:text-white transition-colors">
+<span class="material-symbols-outlined" style="font-size: 22px;">chat_bubble</span>
+</button>
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-9 border border-[#232f48]" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAGFKsz-ltIOwrjMUBD2Ls1qfyUO9ydzI7qrrvG7zLJC1YUNhSSv8jyTEyC-ai-yKG0nbut8ULdeFc2oGgoJ_nYvoZ2z52-Z44I3UAOSLvkROtSmMOgUUzoSpdrGPAUZbvrSYg4_3G6x1USWpERJrBQLxW0IEeADv2qJ2oeZjPPTLWaWGz5zXFKTN6mXwSXvDDf0ZNeLXy_C_cUklJqR5f4drZh6wr6y91H6RknIFP93v4JRQvrzBESJarpyG-qXgc2GqOWmgxvpqLw");'></div>
+</div>
+</header>
+<!-- Scrollable Content Area -->
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-[#111722] p-4 md:p-8 scroll-smooth">
+<div class="max-w-[1200px] mx-auto flex flex-col gap-8">
+<!-- Breadcrumbs & Header -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2 text-sm">
+<a class="text-[#92a4c9] hover:text-white transition-colors" href="#">Dashboard</a>
+<span class="text-[#92a4c9]">/</span>
+<span class="text-white font-medium">Analytics</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<h2 class="text-white text-3xl font-bold tracking-tight">Analytics Overview</h2>
+<p class="text-[#92a4c9]">Track website performance, user engagement, and content metrics.</p>
+</div>
+<div class="flex items-center gap-3">
+<!-- Date Range Picker (Visual) -->
+<button class="flex items-center gap-2 h-10 px-4 bg-[#232f48] hover:bg-[#2f3e5c] text-white text-sm font-medium rounded-lg transition-colors border border-transparent hover:border-[#3a4b6b]">
+<span class="material-symbols-outlined" style="font-size: 18px;">calendar_today</span>
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined" style="font-size: 18px;">expand_more</span>
+</button>
+<!-- Export Button -->
+<button class="flex items-center gap-2 h-10 px-4 bg-primary hover:bg-blue-600 text-white text-sm font-bold rounded-lg shadow-lg shadow-blue-900/20 transition-all">
+<span class="material-symbols-outlined" style="font-size: 18px;">download</span>
+<span>Export Report</span>
+</button>
+</div>
+</div>
+</div>
+<!-- KPI Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="bg-[#232f48] p-5 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92a4c9] text-sm font-medium">Total Page Views</p>
+<div class="bg-primary/20 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">visibility</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-white text-2xl font-bold">124,032</h3>
+<span class="text-emerald-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span> 12%
+                                </span>
+</div>
+<p class="text-[#92a4c9] text-xs mt-1">vs. previous 30 days</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-[#232f48] p-5 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92a4c9] text-sm font-medium">Unique Visitors</p>
+<div class="bg-primary/20 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">person</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-white text-2xl font-bold">89,201</h3>
+<span class="text-emerald-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_upward</span> 5.2%
+                                </span>
+</div>
+<p class="text-[#92a4c9] text-xs mt-1">vs. previous 30 days</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-[#232f48] p-5 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92a4c9] text-sm font-medium">Avg. Time on Page</p>
+<div class="bg-primary/20 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">schedule</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-white text-2xl font-bold">2m 45s</h3>
+<span class="text-rose-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">arrow_downward</span> 2.1%
+                                </span>
+</div>
+<p class="text-[#92a4c9] text-xs mt-1">vs. previous 30 days</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-[#232f48] p-5 rounded-xl border border-white/5 shadow-sm hover:border-primary/30 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<p class="text-[#92a4c9] text-sm font-medium">Bounce Rate</p>
+<div class="bg-primary/20 p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px;">call_split</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-white text-2xl font-bold">42.8%</h3>
+<span class="text-emerald-400 text-xs font-bold flex items-center">
+<span class="material-symbols-outlined" style="font-size: 14px;">remove</span> 0.4%
+                                </span>
+</div>
+<p class="text-[#92a4c9] text-xs mt-1">Stable performance</p>
+</div>
+</div>
+<!-- Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto min-h-[400px]">
+<!-- Main Line Chart -->
+<div class="lg:col-span-2 bg-[#232f48] rounded-xl border border-white/5 p-6 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-white text-lg font-bold">Visitor Trends</h3>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-medium text-white bg-primary rounded-full">Daily</button>
+<button class="px-3 py-1 text-xs font-medium text-[#92a4c9] hover:text-white hover:bg-white/5 rounded-full transition-colors">Weekly</button>
+</div>
+</div>
+<!-- CSS-only Chart Simulation -->
+<div class="flex-1 w-full relative h-[300px] flex items-end gap-2 pt-8 pr-2">
+<!-- Y Axis Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between text-[#92a4c9] text-xs font-medium z-0 pointer-events-none pb-8 pl-8 pr-0 border-l border-b border-white/10">
+<div class="relative w-full border-t border-dashed border-white/10 h-0"><span class="absolute -left-8 -top-2">50k</span></div>
+<div class="relative w-full border-t border-dashed border-white/10 h-0"><span class="absolute -left-8 -top-2">40k</span></div>
+<div class="relative w-full border-t border-dashed border-white/10 h-0"><span class="absolute -left-8 -top-2">30k</span></div>
+<div class="relative w-full border-t border-dashed border-white/10 h-0"><span class="absolute -left-8 -top-2">20k</span></div>
+<div class="relative w-full border-t border-dashed border-white/10 h-0"><span class="absolute -left-8 -top-2">10k</span></div>
+<div class="relative w-full h-0"><span class="absolute -left-8 -top-2">0</span></div>
+</div>
+<!-- Chart SVG -->
+<svg class="absolute inset-0 w-full h-full pl-8 pb-8 z-10 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 100">
+<!-- Gradient definition -->
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2b6cee" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#2b6cee" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area Fill -->
+<path d="M0,100 L0,70 Q10,60 20,65 T40,50 T60,30 T80,45 T100,20 L100,100 Z" fill="url(#chartGradient)"></path>
+<!-- Line Stroke -->
+<path d="M0,70 Q10,60 20,65 T40,50 T60,30 T80,45 T100,20" fill="none" stroke="#2b6cee" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<!-- Tooltip Dot (Example Position) -->
+<circle class="cursor-pointer hover:r-4 transition-all" cx="60" cy="30" fill="#ffffff" r="3" stroke="#2b6cee" stroke-width="2"></circle>
+</svg>
+<!-- X Axis Labels -->
+<div class="absolute bottom-0 left-8 right-0 flex justify-between text-[#92a4c9] text-xs pt-2">
+<span>Nov 1</span>
+<span>Nov 5</span>
+<span>Nov 10</span>
+<span>Nov 15</span>
+<span>Nov 20</span>
+<span>Nov 25</span>
+<span>Nov 30</span>
+</div>
+</div>
+</div>
+<!-- Donut Chart -->
+<div class="bg-[#232f48] rounded-xl border border-white/5 p-6 flex flex-col">
+<h3 class="text-white text-lg font-bold mb-6">Traffic Sources</h3>
+<div class="flex-1 flex flex-col items-center justify-center gap-6">
+<!-- CSS Donut Chart -->
+<div class="relative size-48 rounded-full" style="background: conic-gradient(#2b6cee 0% 40%, #8b5cf6 40% 70%, #10b981 70% 90%, #f59e0b 90% 100%);">
+<div class="absolute inset-0 m-auto size-32 bg-[#232f48] rounded-full flex flex-col items-center justify-center">
+<span class="text-white text-3xl font-bold">124k</span>
+<span class="text-[#92a4c9] text-xs">Total Visits</span>
+</div>
+</div>
+<!-- Legend -->
+<div class="w-full grid grid-cols-2 gap-y-3 gap-x-4">
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-primary"></div>
+<div class="flex flex-col">
+<span class="text-[#92a4c9] text-xs">Organic Search</span>
+<span class="text-white text-sm font-bold">40%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-violet-500"></div>
+<div class="flex flex-col">
+<span class="text-[#92a4c9] text-xs">Direct</span>
+<span class="text-white text-sm font-bold">30%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-emerald-500"></div>
+<div class="flex flex-col">
+<span class="text-[#92a4c9] text-xs">Social Media</span>
+<span class="text-white text-sm font-bold">20%</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="size-3 rounded-full bg-amber-500"></div>
+<div class="flex flex-col">
+<span class="text-[#92a4c9] text-xs">Referral</span>
+<span class="text-white text-sm font-bold">10%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top Articles Table -->
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<h3 class="text-white text-xl font-bold">Top Performing AI News</h3>
+<a class="text-primary text-sm font-medium hover:text-blue-400" href="#">View All Content</a>
+</div>
+<div class="w-full overflow-x-auto rounded-xl border border-white/5 bg-[#232f48]">
+<table class="w-full text-left text-sm border-collapse">
+<thead class="bg-white/5 text-[#92a4c9]">
+<tr>
+<th class="p-4 font-medium border-b border-white/10">Article Title</th>
+<th class="p-4 font-medium border-b border-white/10 w-32">Author</th>
+<th class="p-4 font-medium border-b border-white/10 w-32">Date</th>
+<th class="p-4 font-medium border-b border-white/10 w-48 text-right">Total Views</th>
+<th class="p-4 font-medium border-b border-white/10 w-16"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium group-hover:text-primary transition-colors">The Rise of Generative AI in 2024</span>
+<span class="text-[#92a4c9] text-xs">Category: Machine Learning</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-cover bg-center" data-alt="Author avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG7fA-sAyFQ6dUWkUDXDAPxow9V2-met-fC--amsSWkQ9E2eYI1gpRHhX2n9U4c60UP6hsO5qgURVF_1MadWF0qbPXhohUZVN2lQToOV_Tr1Fl35CJNd8OogNdHI8j13kEn0j8wQO6ctRad-ZbmeYUj9CCx2F9tnjgKs-_rdocELGpNkT4uUWTmpznvvT34s5ZaZ7q6v83WCw05JYSofdNPLnKa8X8mTI7sAv138f1NJpU9md_5A5t1pGtwa_DNjcwlena7Tlpqtp4')"></div>
+<span class="text-white">Sarah J.</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Nov 12, 2023</td>
+<td class="p-4">
+<div class="flex flex-col items-end gap-1">
+<span class="text-white font-bold">45,231</span>
+<div class="w-24 h-1.5 bg-[#111722] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#92a4c9] hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium group-hover:text-primary transition-colors">Understanding Neural Networks: A Deep Dive</span>
+<span class="text-[#92a4c9] text-xs">Category: Education</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-cover bg-center" data-alt="Author avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvkDnn8B1W1C7A-G-fUgavYKDBqw0RpLf4uv9DhvTfTszxYmqtNVOgq7htPUx-pxMsx0mBXtscLwUC-uxnPAb81stwD8JZaiCnimJYI4jhQcmWIQcJGMma-a9xDRY4CLHk8kNPdZ0oWwdPei0bMBmX135LgWZBPCv4gnV0WPusnRU8ZSQ_fIGjvUkUUfBw3nuj230IrV7qzEELgFFOM0clqMPxFerEcoPgcKQ9sxRC2DKFcRhf1hpt-nETgWYxLkMFSFzAOaTNSUEA')"></div>
+<span class="text-white">Mike R.</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Nov 10, 2023</td>
+<td class="p-4">
+<div class="flex flex-col items-end gap-1">
+<span class="text-white font-bold">32,105</span>
+<div class="w-24 h-1.5 bg-[#111722] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[70%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#92a4c9] hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium group-hover:text-primary transition-colors">AI Ethics: Navigating the Grey Areas</span>
+<span class="text-[#92a4c9] text-xs">Category: Ethics &amp; Policy</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-cover bg-center" data-alt="Author avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDTrSKWDtWwPRZhTtCHWiMmiE0ERy4OfWB4zOwskC8lc-hRPtH4nCgxxvPH6dUSsKWjwcxTTLQwTum1jHKMr-ICAtjxWRjMjSJ3U0Xx3qIV_rRBbSM292UR-UE4PB77iO-U_RxP39ELA1XvjiCXR_DsoFbleBUk2frR25DwRtA2JMQ0mNQIlGZjhbuoZ3YdbO9ALlUheMiAtGz0pVs3sxGOvawL8cHAfRTS3oYPz04HN21en05CO0fAyyxDAQ_XLucbL9p8OHrDv_-s')"></div>
+<span class="text-white">David L.</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Nov 08, 2023</td>
+<td class="p-4">
+<div class="flex flex-col items-end gap-1">
+<span class="text-white font-bold">28,450</span>
+<div class="w-24 h-1.5 bg-[#111722] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[60%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#92a4c9] hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="p-4">
+<div class="flex flex-col">
+<span class="text-white font-medium group-hover:text-primary transition-colors">Top 10 AI Tools for Developers</span>
+<span class="text-[#92a4c9] text-xs">Category: Tools</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="size-6 rounded-full bg-cover bg-center" data-alt="Author avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBisc2YbIaRwLeX60P1IObKK9NYzhSEw_zUtuasMvXnyZea5Vdenn-HPD47Z1IQ-tX8R8GsH52rYRSG0KKGoktexDQY4xOnlS9oXa6FpE6VYGdupEBQtYNysaOncqdiXY-FL5rQie2KhPeRglnBHlNoJ68YOqIms53ZVsoZl9VZuU7koclbilj25COP7_7gygawV0yawlxq8sf4GA8l3Ad9cFo4T1Vni2ZAceyi9-NyoyYKb4w4X4QDNwK8aVtNFC79iZWpgKMwJT82')"></div>
+<span class="text-white">Elena G.</span>
+</div>
+</td>
+<td class="p-4 text-[#92a4c9]">Nov 05, 2023</td>
+<td class="p-4">
+<div class="flex flex-col items-end gap-1">
+<span class="text-white font-bold">21,900</span>
+<div class="w-24 h-1.5 bg-[#111722] rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[45%] rounded-full"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-[#92a4c9] hover:text-white"><span class="material-symbols-outlined">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

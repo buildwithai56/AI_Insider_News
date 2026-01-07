@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Article Detail - AI Insider News</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-dark": "#101622",
+                        "card-dark": "#161e2d",
+                        "card-border": "#232f48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #232f48;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .prose {
+            color: #94a3b8;
+            max-width: none;
+        }
+
+        .prose h1,
+        .prose h2,
+        .prose h3 {
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+
+        .prose strong {
+            color: white;
+        }
+
+        .prose blockquote {
+            border-left-color: #2b6cee;
+            color: #cbd5e1;
+            font-style: italic;
+            background: rgba(43, 108, 238, 0.05);
+            padding: 1.5rem;
+            border-radius: 0 1rem 1rem 0;
+        }
+
+        .prose code {
+            color: #60a5fa;
+            background: #1e293b;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+</head>
+
+<body class="bg-background-dark text-slate-300 font-body antialiased overflow-x-hidden">
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 w-full border-b border-card-border bg-background-dark/80 glass-nav">
+        <div class="w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a class="flex items-center gap-2 group" href="index.html">
+                    <div
+                        class="size-9 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <span class="material-symbols-outlined text-[24px]">neurology</span>
+                    </div>
+                    <h2 class="text-xl font-bold tracking-tight text-white">AI Insider</h2>
+                </a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main
+        class="w-full max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
+        <!-- Content Area -->
+        <article class="flex flex-col gap-8">
+            <!-- Breadcrumbs -->
+            <nav class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                <a href="#" class="hover:text-primary" id="article-category">Ethics</a>
+                <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+                <span class="text-slate-400">Analysis</span>
+            </nav>
+
+            <!-- Title Section -->
+            <div class="flex flex-col gap-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] text-white"
+                    id="article-title">
+                    The Future of Generative Models in Healthcare: A Deep Dive
+                </h1>
+                <p class="text-xl lg:text-2xl text-slate-400 font-light leading-relaxed mb-4" id="article-subtitle">
+                    How large language models are moving from experimental labs to real-world diagnostics, changing the
+                    doctor-patient relationship forever.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-6 py-6 border-y border-card-border">
+                    <div class="flex items-center gap-3">
+                        <img src="https://i.pravatar.cc/150?u=sarah" alt="Author"
+                            class="size-12 rounded-full border-2 border-primary" />
+                        <div class="flex flex-col">
+                            <span class="text-white font-bold text-sm">Sarah Connor</span>
+                            <span class="text-primary text-xs font-medium">Senior AI Researcher</span>
+                        </div>
+                    </div>
+                    <div class="hidden sm:block w-px h-8 bg-card-border"></div>
+                    <div class="flex items-center gap-6 text-slate-500 text-sm font-medium">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            <span>Oct 24, 2023</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[18px]">schedule</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 ml-auto">
+                        <button
+                            class="size-10 rounded-full bg-card-dark border border-card-border flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                            <span class="material-symbols-outlined text-[20px]">share</span>
+                        </button>
+                        <button
+                            class="size-10 rounded-full bg-card-dark border border-card-border flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                            <span class="material-symbols-outlined text-[20px]">bookmark</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="rounded-3xl overflow-hidden shadow-2xl border border-card-border aspect-video">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2000"
+                    alt="Futuristic healthcare" class="w-full h-full object-cover" id="article-image" />
+            </div>
+
+            <!-- Article Content -->
+            <div class="prose prose-invert prose-lg max-w-none" id="article-body">
+                <p class="lead text-xl text-slate-200">
+                    The intersection of artificial intelligence and medicine has always been a promised land of
+                    efficiency and accuracy. Today, we are witnessing the first real wave of Generative AI tools being
+                    deployed in clinical settings.
+                </p>
+
+                <h2>The Diagnostic Revolution</h2>
+                <p>
+                    For decades, the medical community has relied on rigid algorithms to assist in diagnostics. These
+                    systems were rule-based, brittle, and unable to handle the nuance of human biology. Enter Generative
+                    Models—systems capable of synthesizing vast amounts of unstructured data, from handwritten doctor
+                    notes to complex genomic sequences.
+                </p>
+
+                <blockquote>
+                    "This changes the diagnostic landscape fundamentally. We aren't just looking for patterns anymore;
+                    we are conversing with the data in a way that feels almost human."
+                    <cite class="block mt-4 not-italic font-bold text-sm">— Dr. A. Smith, Chief of Radiology</cite>
+                </blockquote>
+
+                <h3>Key Breakthroughs</h3>
+                <ul>
+                    <li><strong>Context-Aware Synthesis</strong>: Models can now process the entire longitudinal history
+                        of a patient, uncovering hidden systemic trends.</li>
+                    <li><strong>Synthetic Data Generation</strong>: Accelerating drug discovery by simulating chemical
+                        interactions without the need for physical trials at early stages.</li>
+                    <li><strong>Natural Language Interfaces</strong>: Reducing administrative burden by 60% through
+                        automated clinical documentation.</li>
+                </ul>
+
+                <p>
+                    A recent study published in <em>Nature Medicine</em> demonstrated that a specialized GPT-4
+                    derivative could diagnose rare diseases with a 40% higher accuracy rate than general practitioners,
+                    simply by analyzing patient histories that were previously fragmented across different hospital
+                    systems.
+                </p>
+
+                <h2>Technical Implementation</h2>
+                <p>
+                    The architecture behind these medical sub-models involves
+                    <code>Reinforcement Learning from Medical Feedback (RLMF)</code>. Unlike generic web-crawled data,
+                    these models are fine-tuned on anonymized, high-fidelity clinical datasets with expert validation at
+                    every step of the token prediction process.
+                </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-3 pt-8 border-t border-card-border">
+                <span class="text-xs font-bold text-slate-500 uppercase tracking-widest mr-2 self-center">Filed
+                    under:</span>
+                <a href="#"
+                    class="px-4 py-1.5 rounded-full bg-card-dark border border-card-border text-xs font-bold hover:bg-primary transition-all">#HEALTHCARE</a>
+                <a href="#"
+                    class="px-4 py-1.5 rounded-full bg-card-dark border border-card-border text-xs font-bold hover:bg-primary transition-all">#LLM</a>
+                <a href="#"
+                    class="px-4 py-1.5 rounded-full bg-card-dark border border-card-border text-xs font-bold hover:bg-primary transition-all">#NATURE</a>
+            </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="flex flex-col gap-10">
+            <!-- Newsletter -->
+            <div class="bg-primary rounded-2xl p-6 text-center shadow-2xl">
+                <h4 class="text-xl font-bold text-white mb-2">Weekly Briefing</h4>
+                <p class="text-blue-100/70 text-sm mb-6">Stay updated on the latest AI breakthroughs.</p>
+                <input type="email" placeholder="Email address"
+                    class="w-full bg-white/10 border-0 rounded-xl px-4 py-3 text-white placeholder-white/50 text-sm focus:ring-2 focus:ring-white mb-4" />
+                <button
+                    class="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-slate-50 transition-all">Subscribe</button>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="flex flex-col gap-6">
+                <h3
+                    class="text-sm font-bold text-slate-500 uppercase tracking-[0.2em] border-b border-card-border pb-4">
+                    Read Next</h3>
+
+                <div class="flex flex-col gap-6">
+                    <a href="#" class="group flex flex-col gap-3">
+                        <div class="w-full aspect-[16/9] rounded-xl overflow-hidden border border-card-border">
+                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9757?q=80&w=800"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <h4 class="font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                            NVIDIA H200: Architecture changes that change the game
+                        </h4>
+                    </a>
+
+                    <a href="#" class="group flex flex-col gap-3">
+                        <div class="w-full aspect-[16/9] rounded-xl overflow-hidden border border-card-border">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <h4 class="font-bold text-white group-hover:text-primary transition-colors leading-snug">
+                            The ethics of synthetic data in clinical trials
+                        </h4>
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-card-border bg-[#0a0f18] mt-20">
+        <div
+            class="max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="size-8 rounded-lg bg-primary flex items-center justify-center text-white">
+                    <span class="material-symbols-outlined text-[20px]">neurology</span>
+                </div>
+                <h2 class="text-xl font-bold text-white">AI Insider</h2>
+            </div>
+            <p class="text-slate-500 text-xs text-center md:text-left">© 2026 AI Insider News. Deciphering the future of
+                intelligence.</p>
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-500 hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="text-slate-500 hover:text-white transition-colors">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

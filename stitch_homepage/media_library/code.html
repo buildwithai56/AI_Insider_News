@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Media Library - AI Tech Admin</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "primary-hover": "#2055c2",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1e2736",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#2d3748",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-surface-light dark:bg-[#151c2b] border-b border-border-light dark:border-border-dark px-4 sm:px-8 py-3">
+<div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-8 w-full sm:w-auto justify-between sm:justify-start">
+<div class="flex items-center gap-3 text-slate-900 dark:text-white">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">AI Tech Admin</h2>
+</div>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Posts</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Users</a>
+<a class="text-slate-900 dark:text-white text-sm font-medium transition-colors border-b-2 border-primary pb-0.5" href="#">Media Library</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary text-sm font-medium transition-colors" href="#">Settings</a>
+</nav>
+</div>
+<div class="flex items-center justify-end gap-4 w-full sm:w-auto">
+<div class="relative w-full sm:w-64">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-slate-100 dark:bg-[#232f48] border-none text-slate-900 dark:text-white rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary placeholder:text-slate-400" placeholder="Global search..." type="text"/>
+</div>
+<button class="bg-center bg-no-repeat bg-cover rounded-full size-9 ring-2 ring-white dark:ring-border-dark" data-alt="User avatar profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCEQPAHKrWOw6_-d1Z9R-AvAsxRZ8p7Sq1amixkKPeILk2ZJPRmtJDT3H7oNH21qD8fQ3cGE_PmpRNEdWu4w6M2zIr8bGy0oegaJncCK6jnz9_xbo_lFSReSJJpo5jUY-j4GgbBnlHeZD4tmlSJGQ3YweD9vkNCL9e0PM8rnpa-ewIj69glZ8npTjwiTv5PmFMlHVIQPxsGjNPxYjnNlfNbyWiIEA-g2f_JMr5sso0fGUbDdhsya9KvYs0wemgJ6yq6fx63X4lVLSv_");'></button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-8">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 mb-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-primary text-sm font-medium" href="#">Dashboard</a>
+<span class="text-slate-400 text-sm font-medium">/</span>
+<span class="text-slate-900 dark:text-white text-sm font-medium">Media Library</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Media Library</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base max-w-2xl">
+                    Manage and organize your website's media assets. Upload images, videos, and documents to use in your AI news articles.
+                </p>
+</div>
+<button class="flex-shrink-0 flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white rounded-lg h-11 px-6 font-bold text-sm transition-all shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+<span>Upload New Media</span>
+</button>
+</div>
+<!-- Toolbar & Filters -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-xl p-4 mb-8 border border-border-light dark:border-border-dark shadow-sm">
+<div class="flex flex-col lg:flex-row gap-4 justify-between">
+<!-- Left: Search & Bulk Actions -->
+<div class="flex flex-col sm:flex-row gap-3 flex-1">
+<div class="relative flex-1 max-w-md">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-slate-900 dark:text-white rounded-lg py-2.5 pl-10 pr-4 text-sm focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Search media assets by name..."/>
+</div>
+<div class="flex gap-2">
+<div class="relative group">
+<button class="flex items-center justify-between w-full sm:w-40 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-slate-700 dark:text-slate-200 rounded-lg px-3 py-2.5 text-sm font-medium hover:border-primary dark:hover:border-primary transition-colors">
+<span>All Media Types</span>
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+<!-- Dropdown Mockup (Hidden by default in static HTML, simpler to just show button) -->
+</div>
+<div class="relative">
+<button class="flex items-center gap-2 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-slate-700 dark:text-slate-200 rounded-lg px-3 py-2.5 text-sm font-medium hover:border-primary dark:hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-[20px] filled">calendar_today</span>
+<span class="hidden sm:inline">Date</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right: View Toggle & Sort -->
+<div class="flex items-center gap-3 justify-end border-t lg:border-t-0 border-border-light dark:border-border-dark pt-3 lg:pt-0">
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-2">View</span>
+<div class="flex bg-background-light dark:bg-background-dark rounded-lg p-1 border border-border-light dark:border-border-dark">
+<button class="p-1.5 rounded bg-white dark:bg-slate-700 shadow-sm text-primary">
+<span class="material-symbols-outlined text-[20px]">grid_view</span>
+</button>
+<button class="p-1.5 rounded text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+<span class="material-symbols-outlined text-[20px]">view_list</span>
+</button>
+</div>
+<button class="ml-2 flex items-center justify-center size-10 rounded-lg border border-border-light dark:border-border-dark text-slate-500 dark:text-slate-400 hover:text-red-500 hover:border-red-500 transition-colors" title="Delete Selected">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Active Filters / Selection Info -->
+<div class="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+<div class="flex gap-2">
+<span>Showing 1-12 of 348 assets</span>
+</div>
+<div class="flex gap-1 items-center">
+<span class="size-2 rounded-full bg-green-500"></span>
+<span>All systems operational</span>
+</div>
+</div>
+</div>
+<!-- Media Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+<!-- Card 1 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Abstract AI brain network illustration" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract AI brain network illustration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6bPgB2Le__Ipwia0hsS05rf_L8Aq5filPPr9JjixQd8pcLPi42Fczpv7mYGYOzSfrz-XySNMse7eptQXvW7kb21ZeZn3LxY-XFEwGSvfSCcEvT69QsikX1Kf-mB9GXjbgAfbvrJFW6fuhocvxCneynOjtJ4HV_RTPxvkpE0DiCniqsJnFtK1WetmbEBrlKLNZLzhmoO9FqSm_a1k9zTCNYgQ-KBshRW0i6c04c_DUTgdN-1nSznRf6QR4r8yJ8HwQ2HihUWpU8i1G"/>
+<!-- Selection Checkbox -->
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">JPG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="ai_neural_network_visual.jpg">ai_neural_network_visual.jpg</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">2.4 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 24, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Abstract blue gradient waves" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract blue gradient waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrSabPE1i4jM3QCKbU_nFYjkonml2jz1I8NxmAgKCBUpXNg8DFitjdnSI8vvRaY2o5gn4DIDjYWLvnlgdFpupx0OUVlttYPioi0vqHmwQJq-mxDrI3_oJa6dW3IyzxTAtGhR-Fog02fvm_g1y7BHYzQt_3tlPT1UuyBvMmgsjsIGa57QlsDggn8HjbYa-b2SL6b7TzoNhcbYrqHPsG08fqpAftEyG3_r7f_BwXb9sMXQi2tdnJ_nn0zgDZZ0gMiDPyehGG7uUzGRcm"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<!-- Hover Actions -->
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">PNG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="bg_hero_gradient_blue.png">bg_hero_gradient_blue.png</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">1.8 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 23, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 ring-2 ring-primary ring-offset-2 ring-offset-background-dark">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Robotic hand touching human finger" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Robotic hand touching human finger" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeV8KgDGy-9vn-kbdBeZ0WVsz7EmDcmCLJnQv0C1j0VmDfzdvLkmwEeYg_y1wTjVEvoG3Bhkp1q3D2Eq-i7EEleBw_YnUnTElWxbl0H3chOdtsZHj7RSBcDnXUneen8RnHpGYoOkhyHbG0TvDwiR_MIprEQmM03sVqD6S24kh8x93BcTAqWEAnSubrjj9ZaEmH6rMzVVW28U5xoj724uOEJtIniEFfD9XXJNn6VDV9D49LyNnMj-a-95NfanmtmgNOMn_h20z6fWTl"/>
+<div class="absolute top-3 left-3 z-10">
+<input checked="" class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">JPG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="robot_human_interaction.jpg">robot_human_interaction.jpg</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">3.2 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 22, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 4 (Video) -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 z-10 pointer-events-none">
+<div class="bg-white/20 backdrop-blur-sm rounded-full p-3 text-white">
+<span class="material-symbols-outlined text-[32px] fill">play_arrow</span>
+</div>
+</div>
+<img alt="Cyberpunk city street at night" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Cyberpunk city street at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJB11pHxAaRBW0Y8GMffh32nhsFQ0z7HSPQ6_3KK94B3InbRo1VnSWQM7k02IuhCOuHEW6OH5LcAvAkWDFwfMoKvLJ_00clrh_4BVPfGgwokuXP0Uj86z6LmhXn3AiG7H7SG1efe2uTRfuxNj_mhlTwQGWfjmjhp5E1oJdnXaprzmhHPE92G--r8XcYXKmPZXh3UQZRyt3k8JzwjKqNfY48BOTVbs2xLtZt55qc2mN1U6V9kYurBerM-rhbAPrZRHuk2H5C7_BW8sg"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px] z-20">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">MP4</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="future_city_broll.mp4">future_city_broll.mp4</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">14.5 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 20, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Abstract fluid metallic shapes" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract fluid metallic shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH0OF1qm4U8tBcG6tsNpzzu9cjXBJPOk6GkU5gz_h1rVOug3n7eNhhqPX-jhV7Sz8FO75LxVdWI8Te0fxg3MqHAy0J_1DRlDa2CVxSJ4FxF2shk7BoDSvhgqg8X8s292qrS8iWOT7i_xFllC6JKTuH0YTkZGMzKSNaoGvkquq64oRomGrwtJib3eDJuFtZM9N9eU-WPWK3JS-Yk5LXMUUgAbGdhtmDGjQM9VziGZu82Dk42LmKFlKM8uo-REB-oyFTfqHQKvCLDGyj"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">PNG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="metallic_texture_01.png">metallic_texture_01.png</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">4.1 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 19, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Futuristic white robot head" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Futuristic white robot head" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9BIAZ5X6Wcxem37vuHnBE1bDmdn6iskJu8DbnQZKiX6NlbsCW0wgOGzPbRW73Hqz980cL0pkeR3cbEf_eHd0y0yrwycUlLOEkINV6QQsaAcG3f71PeRc2qwvUZ-Edxi-frdqQxXb98r036pHUUTRh52MG_JTBzGbr4DXvFIbjbvGAJxVWDC5DHRrqaIVju-8FXzumwKGcBYks8KRXlTwVHKyEGlSlrb6aNdg2i6ET7jZ4ZgKt8qXnlCNlYN8jXh3xB_Vi3Zni3wTd"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">WEBP</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="ai_avatar_bot.webp">ai_avatar_bot.webp</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">0.8 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 18, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Retro computer setup with code" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Retro computer setup with code" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKRsA3zZNIV6nWMz3I1bvoduKGFNweg3ArTkIYibtVydKJlFvo2K5F4iqeMkWaUxut0uMh5pdPxSddYQ-8MLk-qYVduZxbXF-Qp7v0meiZeXL9hWIJ2rWiQwFwqDvA7GgoyhclN1RkmH3ecBACJHwGjVG5kn3jwDciXo1iSLDEGPIXCu8vat2hhv57kdpvX8iJ0w4zDC7GtW_VW8lMgBUXj2aifx5u6yJc0uhipVb3Gx3GT6z3hPN_ySFv3ovO64r5VFPFLqxcWu-r"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">JPG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="vintage_coding_setup.jpg">vintage_coding_setup.jpg</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">2.1 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 18, 2023</span>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="group relative flex flex-col bg-surface-light dark:bg-surface-dark rounded-xl border border-border-light dark:border-border-dark overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
+<div class="relative aspect-square w-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+<img alt="Close up of a computer motherboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a computer motherboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGdI48wzZSiIkk-GbX6-pgIyjl0UVKnkd8HaxStS-M55fatZkPv_KTSk-VFBlUOws0OiaPzLFYIxJyAC0Ycwd07HZAjcioJe0nkrJVYbmMSSz3HLE5E1UO--xeoUu0bCYCF3cIr6R6QSNTNvCaticGBO2oGITjWVtvuTa8Ebb5DGq1d9JhimZOT9L1qs2N4OMzM_pv3QSZQhBugOBR1kl2He2zlta4wruEuIycyh5_qgDAnUhmZVVyejlwcwuk9aHmeYkY6iqx2abO"/>
+<div class="absolute top-3 left-3 z-10">
+<input class="size-5 rounded border-gray-300 text-primary focus:ring-primary bg-white/90 backdrop-blur-sm cursor-pointer" type="checkbox"/>
+</div>
+<div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
+<button class="bg-white/10 hover:bg-white text-white hover:text-primary rounded-full p-2 backdrop-blur-md transition-colors" title="Edit">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="bg-white/10 hover:bg-white text-white hover:text-red-600 rounded-full p-2 backdrop-blur-md transition-colors" title="Delete">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="absolute bottom-2 right-2 bg-black/70 backdrop-blur-md text-white text-[10px] px-1.5 py-0.5 rounded font-mono">JPG</div>
+</div>
+<div class="p-3">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white truncate" title="motherboard_macro.jpg">motherboard_macro.jpg</h3>
+<div class="flex justify-between items-center mt-1">
+<span class="text-xs text-slate-500 dark:text-slate-400">3.5 MB</span>
+<span class="text-xs text-slate-500 dark:text-slate-400">Oct 17, 2023</span>
+</div>
+</div>
+</div>
+<!-- Upload Dropzone (As the last item in grid visually encouraging adding more) -->
+<div class="flex flex-col items-center justify-center bg-background-light dark:bg-background-dark rounded-xl border-2 border-dashed border-border-light dark:border-border-dark hover:border-primary dark:hover:border-primary cursor-pointer transition-colors aspect-square group">
+<div class="size-12 rounded-full bg-surface-light dark:bg-surface-dark flex items-center justify-center mb-3 shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-[24px]">add</span>
+</div>
+<p class="text-sm font-medium text-slate-900 dark:text-white">Upload New</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1">or drag &amp; drop</p>
+</div>
+</div>
+<!-- Pagination -->
+<div class="flex items-center justify-between border-t border-border-light dark:border-border-dark mt-8 pt-6">
+<button class="flex items-center gap-1 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white disabled:opacity-50">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                Previous
+            </button>
+<div class="flex items-center gap-2">
+<button class="size-8 rounded-lg bg-primary text-white text-sm font-bold flex items-center justify-center">1</button>
+<button class="size-8 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-surface-light dark:hover:bg-surface-dark hover:text-slate-900 dark:hover:text-white text-sm font-medium flex items-center justify-center transition-colors">2</button>
+<button class="size-8 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-surface-light dark:hover:bg-surface-dark hover:text-slate-900 dark:hover:text-white text-sm font-medium flex items-center justify-center transition-colors">3</button>
+<span class="text-slate-400">...</span>
+<button class="size-8 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-surface-light dark:hover:bg-surface-dark hover:text-slate-900 dark:hover:text-white text-sm font-medium flex items-center justify-center transition-colors">12</button>
+</div>
+<button class="flex items-center gap-1 text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+                Next
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</main>
+</body></html>

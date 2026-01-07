@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Roles &amp; Permissions - Admin Console</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#111722",
+                        "border-dark": "#232f48",
+                        "text-secondary": "#92a4c9"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for better look in dark mode */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111722;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #324467;
+        }
+    </style>
+</head>
+<body class="bg-background-dark text-white font-display antialiased overflow-hidden h-screen flex">
+<!-- Sidebar Navigation -->
+<aside class="w-64 bg-surface-dark border-r border-border-dark flex-col hidden md:flex h-full">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-10" data-alt="TechNews AI Logo with abstract circuit pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCcRL4F_MMtLnFkzkwU77rdUDL-h3o7THqe1zxi6S3D-YVO0CX7Nf2HPebYgxTaZm7shbzUOtxCSH4PNWAgILJgkJ4bPthCugu7O6AGhSLaFF7yGh1NOGBDGxRf4pXD6-jfXxzpLvWSq6FZSACk80qPLN_f2bp5Mt_iDBGwM85qRhBfKq_6urgXnOJCfyscwf9VkLRTHTFLIFRWSOMiAe_xHmdHcm8dE1tw2j-YRbQt1gLwdhYsw_U2fMvHuursR77uX1TC572lCV9e");'></div>
+<div class="flex flex-col">
+<h1 class="text-white text-base font-bold leading-normal">TechNews AI</h1>
+<p class="text-text-secondary text-xs font-normal leading-normal">Admin Panel</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2 px-4 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:bg-border-dark hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:bg-border-dark hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">group</span>
+<span class="text-sm font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+<span class="text-sm font-medium">Roles &amp; Permissions</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:bg-border-dark hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">article</span>
+<span class="text-sm font-medium">Content</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:bg-border-dark hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">folder</span>
+<span class="text-sm font-medium">Media Library</span>
+</a>
+<div class="my-2 border-t border-border-dark"></div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-text-secondary hover:bg-border-dark hover:text-white transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-border-dark">
+<div class="flex items-center gap-3 px-3 py-2 cursor-pointer hover:bg-border-dark rounded-lg transition-colors">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-8" data-alt="User profile picture of admin" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAWx0RLuUKkuDAtEu96UynWqOV0-qapFhMlF26cYP249Wmx6bbwIH3A6IEldZwU45LUXVC4mHjWR_hoVvTp7ej5_acaC2jwNYTxrE0KWEWJVU3vVdMfhP3QbBfssNfs781MMiWnTsn0EyCzG_hoVpP8wdfIxu4mfkPpiQeOTncNG0nK7_sW-4qjovtMQ8zN38QdofYv_8rSkqgMwE1C_ApCVbf3v5wdTBDhbBqN5hat6Aho-LGt2lbvHGAlBcyoT0BUWu_1IU108hYt");'></div>
+<div class="flex flex-col">
+<p class="text-white text-sm font-medium">Alex Morgan</p>
+<p class="text-text-secondary text-xs">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col h-full overflow-hidden relative">
+<!-- Top Header -->
+<header class="flex items-center justify-between border-b border-border-dark px-6 py-4 bg-surface-dark h-16 shrink-0 z-20">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-text-secondary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex items-center text-text-secondary text-sm">
+<span class="hover:text-white cursor-pointer">Settings</span>
+<span class="mx-2">/</span>
+<span class="hover:text-white cursor-pointer">Users</span>
+<span class="mx-2">/</span>
+<span class="text-white font-medium">Roles &amp; Permissions</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary text-[20px]">search</span>
+<input class="bg-border-dark/50 border-transparent focus:border-primary focus:ring-0 text-white text-sm rounded-lg pl-10 pr-4 py-2 w-64 placeholder-text-secondary" placeholder="Search..." type="text"/>
+</div>
+<button class="text-text-secondary hover:text-white relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-0 right-0 size-2 bg-red-500 rounded-full border-2 border-surface-dark"></span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-hidden p-6 gap-6 relative z-10">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between items-end gap-4 shrink-0">
+<div>
+<h1 class="text-3xl font-bold tracking-tight text-white mb-2">Roles &amp; Permissions</h1>
+<p class="text-text-secondary">Manage access levels and capability definitions for all users.</p>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-white px-4 py-2.5 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Create New Role
+                </button>
+</div>
+<!-- Split View Container -->
+<div class="flex flex-col lg:flex-row gap-6 flex-1 overflow-hidden min-h-0">
+<!-- Left Pane: Roles List -->
+<div class="w-full lg:w-80 flex flex-col gap-4 overflow-y-auto pr-1 shrink-0 pb-20 lg:pb-0">
+<h3 class="text-xs font-semibold text-text-secondary uppercase tracking-wider px-1">Available Roles</h3>
+<div class="flex flex-col gap-3">
+<!-- Active Role Item -->
+<div class="group relative flex flex-col gap-1 p-4 rounded-xl border border-primary bg-primary/5 cursor-pointer shadow-lg shadow-primary/5 transition-all">
+<div class="flex justify-between items-start">
+<h4 class="text-white font-semibold">Administrator</h4>
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-text-secondary text-xs leading-relaxed">Full access to all settings, system configuration, and user management.</p>
+<div class="mt-2 flex items-center gap-2 text-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">group</span>
+                                3 Users
+                            </div>
+</div>
+<!-- Inactive Role Item -->
+<div class="group relative flex flex-col gap-1 p-4 rounded-xl border border-border-dark bg-surface-dark hover:border-text-secondary/30 cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<h4 class="text-white font-medium group-hover:text-primary transition-colors">Editor</h4>
+</div>
+<p class="text-text-secondary text-xs leading-relaxed">Can publish, edit, and delete any content. Can manage comments.</p>
+<div class="mt-2 flex items-center gap-2 text-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">group</span>
+                                12 Users
+                            </div>
+</div>
+<!-- Inactive Role Item -->
+<div class="group relative flex flex-col gap-1 p-4 rounded-xl border border-border-dark bg-surface-dark hover:border-text-secondary/30 cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<h4 class="text-white font-medium group-hover:text-primary transition-colors">Author</h4>
+</div>
+<p class="text-text-secondary text-xs leading-relaxed">Can write, edit, and publish their own posts.</p>
+<div class="mt-2 flex items-center gap-2 text-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">group</span>
+                                45 Users
+                            </div>
+</div>
+<!-- Inactive Role Item -->
+<div class="group relative flex flex-col gap-1 p-4 rounded-xl border border-border-dark bg-surface-dark hover:border-text-secondary/30 cursor-pointer transition-all">
+<div class="flex justify-between items-start">
+<h4 class="text-white font-medium group-hover:text-primary transition-colors">Subscriber</h4>
+</div>
+<p class="text-text-secondary text-xs leading-relaxed">Read-only access to premium content. No admin privileges.</p>
+<div class="mt-2 flex items-center gap-2 text-xs text-text-secondary">
+<span class="material-symbols-outlined text-[16px]">group</span>
+                                890 Users
+                            </div>
+</div>
+</div>
+</div>
+<!-- Right Pane: Permissions Editor -->
+<div class="flex-1 bg-surface-dark border border-border-dark rounded-xl flex flex-col overflow-hidden shadow-xl">
+<!-- Editor Toolbar -->
+<div class="px-6 py-4 border-b border-border-dark flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#161e2c]">
+<div class="flex items-center gap-3">
+<span class="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">admin_panel_settings</span>
+</span>
+<div>
+<h2 class="text-lg font-bold text-white">Administrator Permissions</h2>
+<p class="text-xs text-text-secondary">Last updated by Alex M. on Oct 24, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-text-secondary text-[18px]">filter_list</span>
+<input class="bg-background-dark border-border-dark focus:border-primary focus:ring-0 text-white text-xs rounded-md pl-9 pr-3 py-2 w-48" placeholder="Filter permissions..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Scrollable Permissions Grid -->
+<div class="flex-1 overflow-y-auto p-6 space-y-8 bg-surface-dark">
+<!-- Permission Group: Content -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary material-symbols-outlined text-[20px]">article</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">Content Management</h3>
+<div class="h-px bg-border-dark flex-1 ml-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Create &amp; Edit Posts</p>
+<p class="text-xs text-text-secondary mt-1">Allows creating new articles and editing existing ones.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" disabled="" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary/50 cursor-not-allowed opacity-80"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Publish Content</p>
+<p class="text-xs text-text-secondary mt-1">Can publish posts to the live site immediately.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" disabled="" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary/50 cursor-not-allowed opacity-80"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Delete Others' Content</p>
+<p class="text-xs text-text-secondary mt-1">Can delete content created by other users.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Manage Categories</p>
+<p class="text-xs text-text-secondary mt-1">Create, edit, and delete content taxonomies.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Permission Group: Users -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary material-symbols-outlined text-[20px]">group</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">User Administration</h3>
+<div class="h-px bg-border-dark flex-1 ml-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Create Users</p>
+<p class="text-xs text-text-secondary mt-1">Add new users to the system manually.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Edit User Roles</p>
+<p class="text-xs text-text-secondary mt-1">Promote or demote users by changing their roles.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Ban Users</p>
+<p class="text-xs text-text-secondary mt-1">Suspend access for specific user accounts.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Permission Group: System -->
+<section>
+<div class="flex items-center gap-2 mb-4">
+<span class="text-primary material-symbols-outlined text-[20px]">settings_applications</span>
+<h3 class="text-sm font-bold text-white uppercase tracking-wider">System &amp; AI Tools</h3>
+<div class="h-px bg-border-dark flex-1 ml-2"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Access AI Model Config</p>
+<p class="text-xs text-text-secondary mt-1">Modify parameters for the content generation AI.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">View System Logs</p>
+<p class="text-xs text-text-secondary mt-1">Access technical audit logs and error reports.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Permission Item -->
+<div class="flex items-start justify-between p-4 rounded-lg bg-background-dark border border-border-dark">
+<div class="pr-4">
+<p class="text-sm font-medium text-white">Manage API Keys</p>
+<p class="text-xs text-text-secondary mt-1">Generate and revoke API keys for 3rd party integration.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<div class="h-10"></div> <!-- Spacer -->
+</div>
+<!-- Footer / Sticky Action Bar -->
+<div class="p-4 border-t border-border-dark bg-[#161e2c] flex justify-between items-center">
+<button class="text-red-400 hover:text-red-300 text-sm font-medium px-4 py-2 hover:bg-red-500/10 rounded-lg transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+                            Delete Role
+                        </button>
+<div class="flex items-center gap-3">
+<button class="text-text-secondary hover:text-white px-4 py-2 text-sm font-medium transition-colors">Reset</button>
+<button class="bg-primary hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium shadow-lg shadow-primary/20 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                                Save Changes
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

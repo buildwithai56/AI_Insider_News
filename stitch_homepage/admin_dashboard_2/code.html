@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI News Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1A2332",
+                        "border-dark": "#232f48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar for dark theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101622; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee; 
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden selection:bg-primary selection:text-white">
+<div class="flex h-screen w-full">
+<!-- Side Navigation -->
+<aside class="flex w-64 flex-col bg-[#111722] border-r border-border-dark flex-shrink-0 transition-all duration-300">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- Brand -->
+<div class="flex flex-col px-2">
+<div class="flex items-center gap-2 mb-1">
+<div class="h-6 w-6 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">smart_toy</span>
+</div>
+<h1 class="text-white text-lg font-bold leading-normal tracking-tight">AI News Admin</h1>
+</div>
+<p class="text-[#92a4c9] text-xs font-normal leading-normal pl-8">v2.4.0 • Enterprise</p>
+</div>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-white border border-primary/10 group hover:bg-primary/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium">Articles</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Users</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">image</span>
+<p class="text-sm font-medium">Media</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<!-- Bottom User Info -->
+<div class="border-t border-border-dark pt-4 px-2">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-8 w-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2KiVTaIu2_qljVWc2K5tWWy4UPWpu0Eg41yNyZRMMHZwlBpU1dFd5Wtl1zUQTLG63J1iw6glmC1G-zTz3UloiNzTk_m3EsLXbiaPY6mdc-eHX2Ov88fzJJRGRTuO4RpeWOKd93gyEwYofRu6O0D6iZc-lZtQOI6cZt8y2E8ZvOl3lf6JFqLhw32UZbDi8vmyFDz_mU3QcR5bE4GfYnr9NVlCWmboMgqZ7baJqg4LpwH9fWN5Nrl33_rxBid8MYC57VqtfRH2L_c0S");'></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-white text-sm font-medium truncate">Admin User</p>
+<p class="text-[#92a4c9] text-xs truncate">admin@ainews.tech</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex flex-col flex-1 h-full overflow-hidden relative">
+<!-- Top Header -->
+<header class="flex items-center justify-between border-b border-border-dark bg-[#111722]/80 backdrop-blur-md px-8 py-4 sticky top-0 z-20">
+<!-- Search -->
+<div class="flex items-center w-full max-w-md">
+<div class="relative w-full group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#92a4c9] group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="block w-full rounded-lg border-none bg-[#232f48] py-2.5 pl-10 pr-4 text-white placeholder-[#92a4c9] focus:ring-2 focus:ring-primary focus:bg-[#1A2332] transition-all text-sm" placeholder="Search articles, users, or settings..." type="text"/>
+</div>
+</div>
+<!-- Right Actions -->
+<div class="flex items-center gap-4">
+<button class="relative flex items-center justify-center h-10 w-10 rounded-lg hover:bg-[#232f48] text-[#92a4c9] hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-[#111722]"></span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-blue-600 text-white text-sm font-bold rounded-lg transition-colors shadow-[0_0_15px_rgba(43,108,238,0.3)]">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>New Article</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Page Content -->
+<div class="flex-1 overflow-y-auto p-8">
+<div class="mx-auto max-w-7xl flex flex-col gap-8 pb-10">
+<!-- Page Heading -->
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-bold text-white tracking-tight">Welcome back, Admin</h2>
+<p class="text-[#92a4c9]">Here is your daily activity overview and system health status.</p>
+</div>
+<!-- KPI Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors group">
+<div class="flex items-center justify-between">
+<p class="text-[#92a4c9] text-sm font-medium">Total Articles</p>
+<span class="material-symbols-outlined text-primary p-1 bg-primary/10 rounded-md text-[20px]">article</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">1,240</p>
+<p class="text-[#0bda5e] text-xs font-bold flex items-center bg-[#0bda5e]/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span> +12%
+                                </p>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors group">
+<div class="flex items-center justify-between">
+<p class="text-[#92a4c9] text-sm font-medium">Active Users</p>
+<span class="material-symbols-outlined text-primary p-1 bg-primary/10 rounded-md text-[20px]">group</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">8,500</p>
+<p class="text-[#0bda5e] text-xs font-bold flex items-center bg-[#0bda5e]/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span> +5%
+                                </p>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors group">
+<div class="flex items-center justify-between">
+<p class="text-[#92a4c9] text-sm font-medium">Pending Comments</p>
+<span class="material-symbols-outlined text-orange-400 p-1 bg-orange-400/10 rounded-md text-[20px]">chat_bubble</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">45</p>
+<p class="text-orange-400 text-xs font-bold flex items-center bg-orange-400/10 px-1.5 py-0.5 rounded">
+                                    Action needed
+                                </p>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark hover:border-primary/30 transition-colors group">
+<div class="flex items-center justify-between">
+<p class="text-[#92a4c9] text-sm font-medium">API Latency</p>
+<span class="material-symbols-outlined text-purple-400 p-1 bg-purple-400/10 rounded-md text-[20px]">dns</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<p class="text-white text-2xl font-bold">45ms</p>
+<p class="text-[#92a4c9] text-xs font-bold bg-[#92a4c9]/10 px-1.5 py-0.5 rounded">Stable</p>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="w-full rounded-xl bg-surface-dark border border-border-dark p-6">
+<div class="flex items-start justify-between mb-6">
+<div>
+<h3 class="text-white text-lg font-bold">Visitor Analytics</h3>
+<p class="text-[#92a4c9] text-sm">Traffic overview for the last 30 days</p>
+</div>
+<select class="bg-[#111722] border border-border-dark text-white text-sm rounded-lg focus:ring-primary focus:border-primary block p-2">
+<option>Last 30 Days</option>
+<option>Last 7 Days</option>
+<option>Last 24 Hours</option>
+</select>
+</div>
+<div class="relative h-[250px] w-full">
+<!-- Custom Chart Graphic simulating data -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 250">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2b6cee" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#2b6cee" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines -->
+<line stroke="#232f48" stroke-width="1" x1="0" x2="1000" y1="200" y2="200"></line>
+<line stroke="#232f48" stroke-width="1" x1="0" x2="1000" y1="150" y2="150"></line>
+<line stroke="#232f48" stroke-width="1" x1="0" x2="1000" y1="100" y2="100"></line>
+<line stroke="#232f48" stroke-width="1" x1="0" x2="1000" y1="50" y2="50"></line>
+<!-- Data Path -->
+<path d="M0 180 C100 180, 150 120, 200 130 S 300 160, 400 100 S 500 40, 600 70 S 700 120, 800 90 S 900 30, 1000 50 V 250 H 0 Z" fill="url(#chartGradient)"></path>
+<path d="M0 180 C100 180, 150 120, 200 130 S 300 160, 400 100 S 500 40, 600 70 S 700 120, 800 90 S 900 30, 1000 50" fill="none" stroke="#2b6cee" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="flex justify-between mt-2 text-xs text-[#92a4c9] font-medium">
+<span>01 Nov</span>
+<span>05 Nov</span>
+<span>10 Nov</span>
+<span>15 Nov</span>
+<span>20 Nov</span>
+<span>25 Nov</span>
+<span>30 Nov</span>
+</div>
+</div>
+<!-- Split Section: Table and Widgets -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Recent Articles Table -->
+<div class="lg:col-span-2 bg-surface-dark border border-border-dark rounded-xl flex flex-col overflow-hidden">
+<div class="p-5 flex items-center justify-between border-b border-border-dark">
+<h3 class="text-white text-lg font-bold">Recent Articles</h3>
+<button class="text-primary text-sm font-bold hover:text-white transition-colors">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-[#111722] text-[#92a4c9] font-medium border-b border-border-dark">
+<tr>
+<th class="px-6 py-4">Title</th>
+<th class="px-6 py-4">Author</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4 text-right">Date</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-cover bg-center flex-shrink-0 border border-border-dark" data-alt="Abstract blue tech pattern" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKDJtsunWQmXqXK3iDhcREpf4nO76I9Z2D77OupuSinoUZqLswH98yVro1hb_tXTQRc5iaD2ArHHegHDj2b4YzG-y1kWu0vWmVt3aNDgqp3DKCSla1GDH6kF6PjppBpili9GHGb1RlPm4NaEreDOwd6V6T9BCVgXamxtKpSkXkzcpX_JyujYukhnwEDGoQt9PGGkGQ33r8-LWozv6Lf9pmH1Wx2FQT3RIDW93AHUyyE57ur33q1B2_I8Qnyrz8NR_sNZ9dZFA1ae6h");'></div>
+<div>
+<p class="text-white font-medium group-hover:text-primary transition-colors cursor-pointer">The Future of LLMs</p>
+<p class="text-[#92a4c9] text-xs">Tech / AI</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-white">John Doe</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-0.5 text-xs font-medium text-green-500 border border-green-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-green-500"></span> Published
+                                                </span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9] text-right">Oct 24, 2023</td>
+</tr>
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-cover bg-center flex-shrink-0 border border-border-dark" data-alt="Neural network visualization" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOzv7rHCSBNSyhdCnp_O0T35csStHYLSswY-kAosRC0ZD7EkCgV9-F7Bdz_7eI6iDvKJkagtI7sNBjaMjzjyS6sciDPpxb5Y0HQxPeKNp8qhbKiVtBIYRsG2jcPP0oKvBSGTY20IXOZxUKSaPpenjlCkrc1jYOEa-4S-jV-PV2Nohyk2kLGPrSYAOWljj65zfSgMxjJSH9mzaQnolqV8qMVxQgkPNVNCVqPWZ9YPr38HGUI7a0NMALG09fdgUgb1VSHsKN5dd0TUiG");'></div>
+<div>
+<p class="text-white font-medium group-hover:text-primary transition-colors cursor-pointer">Neural Networks 101</p>
+<p class="text-[#92a4c9] text-xs">Education</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-white">Jane Smith</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-yellow-500/10 px-2.5 py-0.5 text-xs font-medium text-yellow-500 border border-yellow-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-yellow-500"></span> Draft
+                                                </span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9] text-right">Oct 23, 2023</td>
+</tr>
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-lg bg-cover bg-center flex-shrink-0 border border-border-dark" data-alt="Cybersecurity lock concept" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANCwLS2I3finhNVQBaxGrl-zKxM9x8AKwgARjKCmXDLo5IdBmCyLT6BUGs1P4DR4zLA4jjt3rmnJHJj1Ep7bRhNgjP1T_XKcqFT6rUDxdmh1xjDgAivEVbfq5ILfDr9fCOQwaw29gOju0HKDMfF9rNIWjqeAQdGxOLFrsXu3ia0LL1GmMN1a990CUzTKrsHQEJRjthqlhiuteZUNzYW3a1dz5uWJ_w0uj5S79ziwtRY9T5JWTq_Ne1Dnu0z5zHdlv2iF1w7L6rfG7Y");'></div>
+<div>
+<p class="text-white font-medium group-hover:text-primary transition-colors cursor-pointer">AI in Cybersecurity</p>
+<p class="text-[#92a4c9] text-xs">Security</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-white">Alex Ray</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-500 border border-blue-500/20">
+<span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span> Review
+                                                </span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9] text-right">Oct 22, 2023</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column Widgets -->
+<div class="flex flex-col gap-6">
+<!-- Quick Actions -->
+<div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+<h3 class="text-white text-lg font-bold mb-4">Quick Actions</h3>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-[#111722] border border-border-dark hover:border-primary hover:bg-[#1A2332] transition-all group">
+<span class="material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform">edit_document</span>
+<span class="text-[#92a4c9] text-xs font-medium group-hover:text-white">Draft Post</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-[#111722] border border-border-dark hover:border-primary hover:bg-[#1A2332] transition-all group">
+<span class="material-symbols-outlined text-green-500 text-[28px] group-hover:scale-110 transition-transform">check_circle</span>
+<span class="text-[#92a4c9] text-xs font-medium group-hover:text-white">Approve Comments</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-[#111722] border border-border-dark hover:border-primary hover:bg-[#1A2332] transition-all group">
+<span class="material-symbols-outlined text-purple-500 text-[28px] group-hover:scale-110 transition-transform">add_a_photo</span>
+<span class="text-[#92a4c9] text-xs font-medium group-hover:text-white">Upload Media</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-2 p-4 rounded-lg bg-[#111722] border border-border-dark hover:border-primary hover:bg-[#1A2332] transition-all group">
+<span class="material-symbols-outlined text-orange-500 text-[28px] group-hover:scale-110 transition-transform">manage_accounts</span>
+<span class="text-[#92a4c9] text-xs font-medium group-hover:text-white">Manage Users</span>
+</button>
+</div>
+</div>
+<!-- System Status -->
+<div class="bg-surface-dark border border-border-dark rounded-xl p-5">
+<h3 class="text-white text-lg font-bold mb-4">System Status</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+<span class="text-white text-sm">Database</span>
+</div>
+<span class="text-green-500 text-xs font-bold bg-green-500/10 px-2 py-0.5 rounded-full">Healthy</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-2 w-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+<span class="text-white text-sm">Web Server</span>
+</div>
+<span class="text-green-500 text-xs font-bold bg-green-500/10 px-2 py-0.5 rounded-full">Healthy</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="h-2 w-2 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]"></div>
+<span class="text-white text-sm">AI Engine API</span>
+</div>
+<span class="text-yellow-500 text-xs font-bold bg-yellow-500/10 px-2 py-0.5 rounded-full">High Load</span>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-border-dark">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-[#92a4c9]">Server Load</span>
+<span class="text-white font-medium">78%</span>
+</div>
+<div class="w-full bg-[#111722] rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

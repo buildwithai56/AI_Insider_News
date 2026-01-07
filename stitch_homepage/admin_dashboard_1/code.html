@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI News Admin Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "surface-dark": "#1A2332",
+                        "border-dark": "#232f48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101622; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee; 
+        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-hidden selection:bg-primary selection:text-white">
+<div class="flex h-screen w-full">
+<aside class="flex w-64 flex-col bg-[#111722] border-r border-border-dark flex-shrink-0 transition-all duration-300">
+<div class="flex h-full flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<div class="flex flex-col px-2">
+<div class="flex items-center gap-2 mb-1">
+<div class="h-6 w-6 rounded bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[18px]">smart_toy</span>
+</div>
+<h1 class="text-white text-lg font-bold leading-normal tracking-tight">AI News Admin</h1>
+</div>
+<p class="text-[#92a4c9] text-xs font-normal leading-normal pl-8">v2.4.0 • Enterprise</p>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<p class="text-sm font-medium">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">description</span>
+<p class="text-sm font-medium">Articles</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/20 text-white border border-primary/10 group hover:bg-primary/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">group</span>
+<p class="text-sm font-medium">Users</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">image</span>
+<p class="text-sm font-medium">Media</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<p class="text-sm font-medium">Analytics</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#92a4c9] hover:bg-[#232f48] hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<p class="text-sm font-medium">Settings</p>
+</a>
+</nav>
+</div>
+<div class="border-t border-border-dark pt-4 px-2">
+<div class="flex items-center gap-3 p-2 rounded-lg hover:bg-[#232f48] cursor-pointer transition-colors">
+<div class="bg-center bg-no-repeat bg-cover rounded-full h-8 w-8" data-alt="User profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2KiVTaIu2_qljVWc2K5tWWy4UPWpu0Eg41yNyZRMMHZwlBpU1dFd5Wtl1zUQTLG63J1iw6glmC1G-zTz3UloiNzTk_m3EsLXbiaPY6mdc-eHX2Ov88fzJJRGRTuO4RpeWOKd93gyEwYofRu6O0D6iZc-lZtQOI6cZt8y2E8ZvOl3lf6JFqLhw32UZbDi8vmyFDz_mU3QcR5bE4GfYnr9NVlCWmboMgqZ7baJqg4LpwH9fWN5Nrl33_rxBid8MYC57VqtfRH2L_c0S");'></div>
+<div class="flex flex-col overflow-hidden">
+<p class="text-white text-sm font-medium truncate">Admin User</p>
+<p class="text-[#92a4c9] text-xs truncate">admin@ainews.tech</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex flex-col flex-1 h-full overflow-hidden relative">
+<header class="flex items-center justify-between border-b border-border-dark bg-[#111722]/80 backdrop-blur-md px-8 py-4 sticky top-0 z-20">
+<div class="flex items-center w-full max-w-md">
+<div class="relative w-full group">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-[#92a4c9] group-focus-within:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="block w-full rounded-lg border-none bg-[#232f48] py-2.5 pl-10 pr-4 text-white placeholder-[#92a4c9] focus:ring-2 focus:ring-primary focus:bg-[#1A2332] transition-all text-sm" placeholder="Search articles, users, or settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative flex items-center justify-center h-10 w-10 rounded-lg hover:bg-[#232f48] text-[#92a4c9] hover:text-white transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-[#111722]"></span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-blue-600 text-white text-sm font-bold rounded-lg transition-colors shadow-[0_0_15px_rgba(43,108,238,0.3)]">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+<span>Add User</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8">
+<div class="mx-auto max-w-7xl flex flex-col gap-8 pb-10">
+<div class="flex flex-col gap-1">
+<h2 class="text-3xl font-bold text-white tracking-tight">User Management</h2>
+<p class="text-[#92a4c9]">Manage administrators, editors, and subscribers. Control access and security.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark flex items-center justify-between flex-row">
+<div>
+<p class="text-[#92a4c9] text-sm font-medium">Total Users</p>
+<p class="text-white text-2xl font-bold mt-1">8,542</p>
+</div>
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg text-[24px]">group</span>
+</div>
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark flex items-center justify-between flex-row">
+<div>
+<p class="text-[#92a4c9] text-sm font-medium">New (Month)</p>
+<p class="text-white text-2xl font-bold mt-1">+125</p>
+</div>
+<span class="material-symbols-outlined text-green-500 p-2 bg-green-500/10 rounded-lg text-[24px]">trending_up</span>
+</div>
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark flex items-center justify-between flex-row">
+<div>
+<p class="text-[#92a4c9] text-sm font-medium">Active Now</p>
+<p class="text-white text-2xl font-bold mt-1">342</p>
+</div>
+<span class="material-symbols-outlined text-blue-400 p-2 bg-blue-400/10 rounded-lg text-[24px]">radio_button_checked</span>
+</div>
+<div class="flex flex-col gap-1 p-5 rounded-xl bg-surface-dark border border-border-dark flex items-center justify-between flex-row">
+<div>
+<p class="text-[#92a4c9] text-sm font-medium">Suspended</p>
+<p class="text-white text-2xl font-bold mt-1">12</p>
+</div>
+<span class="material-symbols-outlined text-red-500 p-2 bg-red-500/10 rounded-lg text-[24px]">block</span>
+</div>
+</div>
+<div class="bg-surface-dark border border-border-dark rounded-xl p-4 flex flex-col md:flex-row gap-4 justify-between items-center">
+<div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto flex-1">
+<div class="relative flex-1 max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[#92a4c9] group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-[#111722] border border-border-dark rounded-lg py-2 pl-10 pr-4 text-white text-sm focus:ring-1 focus:ring-primary focus:border-primary placeholder-[#92a4c9]" placeholder="Search by name, email or ID..." type="text"/>
+</div>
+<select class="bg-[#111722] border border-border-dark rounded-lg py-2 px-3 text-white text-sm focus:ring-1 focus:ring-primary focus:border-primary">
+<option value="">All Roles</option>
+<option value="admin">Administrator</option>
+<option value="editor">Editor</option>
+<option value="subscriber">Subscriber</option>
+</select>
+<select class="bg-[#111722] border border-border-dark rounded-lg py-2 px-3 text-white text-sm focus:ring-1 focus:ring-primary focus:border-primary">
+<option value="">All Status</option>
+<option value="active">Active</option>
+<option value="inactive">Inactive</option>
+<option value="suspended">Suspended</option>
+</select>
+</div>
+<div class="flex items-center gap-2 w-full md:w-auto justify-end">
+<button class="flex items-center justify-center p-2 text-[#92a4c9] hover:text-white hover:bg-[#232f48] rounded-lg transition-colors border border-border-dark hover:border-primary/50">
+<span class="material-symbols-outlined">download</span>
+</button>
+<button class="flex items-center justify-center p-2 text-[#92a4c9] hover:text-white hover:bg-[#232f48] rounded-lg transition-colors border border-border-dark hover:border-primary/50">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-dark border border-border-dark rounded-xl overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead class="bg-[#111722] text-[#92a4c9] font-medium border-b border-border-dark">
+<tr>
+<th class="px-6 py-4">User Details</th>
+<th class="px-6 py-4">Role</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Joined Date</th>
+<th class="px-6 py-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-dark">
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-cover bg-center border border-border-dark" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB2KiVTaIu2_qljVWc2K5tWWy4UPWpu0Eg41yNyZRMMHZwlBpU1dFd5Wtl1zUQTLG63J1iw6glmC1G-zTz3UloiNzTk_m3EsLXbiaPY6mdc-eHX2Ov88fzJJRGRTuO4RpeWOKd93gyEwYofRu6O0D6iZc-lZtQOI6cZt8y2E8ZvOl3lf6JFqLhw32UZbDi8vmyFDz_mU3QcR5bE4GfYnr9NVlCWmboMgqZ7baJqg4LpwH9fWN5Nrl33_rxBid8MYC57VqtfRH2L_c0S");'></div>
+<div>
+<p class="text-white font-medium">Admin User</p>
+<p class="text-[#92a4c9] text-xs">admin@ainews.tech</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-purple-400 text-[18px]">verified_user</span>
+<span class="text-white">Administrator</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-0.5 text-xs font-medium text-green-500 border border-green-500/20">Active</span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9]">Nov 01, 2021</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-primary/20 text-[#92a4c9] hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold border border-border-dark shadow-inner">JS</div>
+<div>
+<p class="text-white font-medium">Jane Smith</p>
+<p class="text-[#92a4c9] text-xs">jane.smith@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-blue-400 text-[18px]">edit_document</span>
+<span class="text-white">Editor</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-0.5 text-xs font-medium text-green-500 border border-green-500/20">Active</span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9]">Oct 15, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-primary/20 text-[#92a4c9] hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-yellow-500/20 text-[#92a4c9] hover:text-yellow-500 transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-orange-500/20 text-[#92a4c9] hover:text-orange-500 transition-colors" title="Suspend Account">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-red-500/20 text-[#92a4c9] hover:text-red-500 transition-colors" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold border border-border-dark shadow-inner">RJ</div>
+<div>
+<p class="text-white font-medium">Robert Johnson</p>
+<p class="text-[#92a4c9] text-xs">robert.j@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#92a4c9] text-[18px]">person</span>
+<span class="text-white">Subscriber</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-red-500/10 px-2.5 py-0.5 text-xs font-medium text-red-500 border border-red-500/20">Suspended</span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9]">Sep 22, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-primary/20 text-[#92a4c9] hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-green-500/20 text-[#92a4c9] hover:text-green-500 transition-colors" title="Activate Account">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-red-500/20 text-[#92a4c9] hover:text-red-500 transition-colors" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-[#111722]/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="h-10 w-10 rounded-full bg-pink-600 flex items-center justify-center text-white font-bold border border-border-dark shadow-inner">EW</div>
+<div>
+<p class="text-white font-medium">Emily White</p>
+<p class="text-[#92a4c9] text-xs">emily.w@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#92a4c9] text-[18px]">person</span>
+<span class="text-white">Subscriber</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-0.5 text-xs font-medium text-green-500 border border-green-500/20">Active</span>
+</td>
+<td class="px-6 py-4 text-[#92a4c9]">Nov 20, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-primary/20 text-[#92a4c9] hover:text-primary transition-colors" title="Edit Profile">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-yellow-500/20 text-[#92a4c9] hover:text-yellow-500 transition-colors" title="Reset Password">
+<span class="material-symbols-outlined text-[18px]">lock_reset</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-orange-500/20 text-[#92a4c9] hover:text-orange-500 transition-colors" title="Suspend Account">
+<span class="material-symbols-outlined text-[18px]">block</span>
+</button>
+<button class="h-8 w-8 rounded flex items-center justify-center hover:bg-red-500/20 text-[#92a4c9] hover:text-red-500 transition-colors" title="Delete User">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-[#111722] border-t border-border-dark flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="text-[#92a4c9] text-xs">Showing <span class="text-white font-medium">1-4</span> of <span class="text-white font-medium">8,542</span> users</p>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-border-dark text-[#92a4c9] hover:text-white hover:bg-[#232f48] text-xs font-medium transition-colors disabled:opacity-50" disabled="">Previous</button>
+<div class="flex items-center gap-1">
+<button class="h-8 w-8 flex items-center justify-center rounded-lg bg-primary text-white text-xs font-bold">1</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[#232f48] text-[#92a4c9] hover:text-white text-xs transition-colors">2</button>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[#232f48] text-[#92a4c9] hover:text-white text-xs transition-colors">3</button>
+<span class="text-[#92a4c9] text-xs">...</span>
+<button class="h-8 w-8 flex items-center justify-center rounded-lg hover:bg-[#232f48] text-[#92a4c9] hover:text-white text-xs transition-colors">24</button>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-dark text-[#92a4c9] hover:text-white hover:bg-[#232f48] text-xs font-medium transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

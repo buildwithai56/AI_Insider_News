@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Insider - Technology News</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Noto+Sans:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#2b6cee",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "card-dark": "#161e2d",
+                        "card-border": "#232f48"
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232f48;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden">
+<header class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-card-border bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2 group" href="#">
+<div class="size-8 rounded-lg bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">neurology</span>
+</div>
+<h2 class="text-xl font-bold tracking-tight">AI Insider</h2>
+</a>
+<nav class="hidden lg:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Robotics</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Machine Learning</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Generative AI</a>
+<a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="#">Policy</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex relative group">
+<div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="h-10 w-64 bg-slate-100 dark:bg-card-border/50 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all border-none placeholder-slate-400" placeholder="Search news..." type="text"/>
+</div>
+<button class="h-10 px-5 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
+<span>Subscribe</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-6 flex flex-col gap-10">
+<section class="@container w-full">
+<div class="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center bg-card-dark rounded-2xl p-6 lg:p-10 border border-card-border overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="flex flex-col gap-6 flex-1 relative z-10 order-2 lg:order-1">
+<div class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        Featured Story
+                    </div>
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-white">
+                        The Next Generation of LLMs: What GPT-5 Means for Code
+                    </h1>
+<p class="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-xl">
+                        Deep dive into the architecture changes and efficiency benchmarks defining the future of programming.
+                    </p>
+<div class="w-full max-w-lg relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-500 group-focus-within:text-primary transition-colors">search</span>
+</div>
+<input class="block w-full h-14 pl-12 pr-28 font-body text-white bg-background-dark/50 border border-card-border rounded-xl focus:ring-2 focus:ring-primary/50 focus:border-primary placeholder-slate-500 transition-all text-base shadow-sm" placeholder="Search news articles..." type="text"/>
+<div class="absolute inset-y-0 right-2 flex items-center">
+<button class="h-10 px-5 bg-card-border hover:bg-primary text-white text-sm font-bold rounded-lg transition-colors shadow-lg">
+                            Search
+                        </button>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 pt-2">
+<button class="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold transition-colors flex items-center gap-2">
+                            Read Full Story
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="h-12 px-6 bg-transparent border border-card-border hover:bg-card-border text-white rounded-lg font-medium transition-colors">
+                            Listen to Podcast
+                        </button>
+</div>
+</div>
+<div class="w-full lg:w-[500px] xl:w-[600px] aspect-video lg:aspect-[4/3] rounded-xl overflow-hidden shadow-2xl shadow-black/50 order-1 lg:order-2 relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark/80 to-transparent z-10 opacity-60"></div>
+<img alt="Abstract digital neural network visualization glowing in blue and purple" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Abstract digital neural network visualization glowing in blue and purple" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJMTZ_efPZgD26wYhWtmwn4iF00HchZbh8ksowWVOSSMIpihpFlolxUhW5XiATyAcT4l9HSTT3Rn1NQ5D67T0rWYVYY8P1rZn_DbISVTi6VA7Rb-wvFh8Ul6YeoDiQJt7PAa11pEMISKjxz5Q6wPzNzfbgrdfCapmJP33sAzUMRXIlLpezqXXHAo9FzIKTwXcMX7Y-tfcuG-OOHhsmFeHDTlLDNSEc8j2D2QjLIQVEtr688Ow-tkbe2OnRzRGE6tbGwDG_bW-hlOXH"/>
+</div>
+</div>
+</section>
+<div class="flex flex-col xl:flex-row gap-8">
+<div class="flex-1 flex flex-col gap-6">
+<div class="flex items-center justify-between border-b border-card-border pb-4">
+<h2 class="text-2xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">newspaper</span>
+                        Latest News
+                    </h2>
+<a class="text-sm font-medium text-primary hover:text-primary/80 flex items-center" href="#">View All <span class="material-symbols-outlined text-[18px]">chevron_right</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Hardware</div>
+<img alt="Macro shot of a computer chip with neon lighting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Macro shot of a computer chip with neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKC7RHoUZS1ql_TDW8mZBeIqkroGtKAkPz7R2N7O5Qs-SWpiAXsCIqGkRdlAfFNZKwfMPtx0mlnIiAVlNbrUYDXHS0dQFjUrcRlOB4OihfksU2eO3Wjfxi5zUFVtvsuZLaNOvRT0Punj3wWui5teW_x387xI16vQyZBR84LAis_lLXMKL4kJbDj4AcCkwXg28Y9lRi0rtGArxE_sDL5PdVtlvpW4wVfPdr6o7H_R9NXxuBH3Cv0vtPQ_9B05Bt6rpmyE_0io37-A5a"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>3 hours ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>NVIDIA</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">NVIDIA announces new H200 chip availability</h3>
+<p class="text-slate-400 text-sm line-clamp-2">The latest GPU architecture promises 2x faster inference speeds for large models.</p>
+</div>
+</article>
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Generative AI</div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Abstract colorful fluid art representing generative AI video" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqZoB98DlDlsMw_hjrl4lO4SsGmtEzAoTVTGYzeV4vMDVz2ZcM0MANPSdG8TRJWsD9K9KMv_kJVo_vBltsUsmS25UpQkxg3Ubtb8PCbwCktxAo18Ok002n79NY541ghe_E9IE8T1poSHjhJKBMpD968Ow3juQm3ZrJ92957Y61_yTyEUcfjCNgAJgCO5kqsVg7QeDg6MqSgAzGn4xbeHcgkZBG88tUg6dWW9_dtL8A72eHG_MdP4deG41YkFvP3sTsr1QbgPfa9Ae0"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>5 hours ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>MidJourney</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">MidJourney V7 introduces video generation</h3>
+<p class="text-slate-400 text-sm line-clamp-2">Users can now generate 4-second looping videos with high temporal consistency.</p>
+</div>
+</article>
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Regulation</div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="European Union flag waving in front of digital code background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDxngKhkDHRW-CCBtf77X4xEX1wohf1cliRCoZk-nRYnrMMtEcWPvFHEq0h8O0FSSixCKDCZylCbPfaT9u86obMblfeekU4C5Qcpjn8E2ucfIRMCALIcqJ_zMGNpQu50_CD5ey83Nbk_I3jdctW-K24UrsQcB8EIirff-WhtWWse5xMZeVsTtGDT2sW5xXy2DFnSGYa5MZTitxj_LQAXn1RHHHCO14MDisMyv0qwitoHd0cRejnFa2WKKdpdkn4LsbMv3f6TaIhGSx"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>1 day ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>Policy</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">EU AI Act: Compliance deadlines approaching</h3>
+<p class="text-slate-400 text-sm line-clamp-2">Companies deploying high-risk AI systems must prepare for the new regulatory framework.</p>
+</div>
+</article>
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Research</div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Complex mathematical formulas glowing on a dark chalkboard surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgl2sZog6DwGQauqG4XJ9JMYwoFF-WI2Ip2v-5VPixShDll7akZv5MrUEsLa-i5TLjfC1Q1wOKdL8d_8j1YKDP23yYNgInlqUm6sdppiB6OGrif36EwsHfFnh1DiKdpDaFvkssgW3Hb9Xf8yrwhnqdn1STrutlWQTcPO12DVQcAwELSOl_aKQBzPgQUGho4hzwOnZHWEDq1HI6ZZp0piniF1diTnabf2umpTbCO2ePY1KLHTyEhgZaMm8A0LXoBfp0UAALL2_U-hct"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>2 days ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>DeepMind</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">Google DeepMind solves 50-year-old math puzzle</h3>
+<p class="text-slate-400 text-sm line-clamp-2">AlphaGeometry achieves Olympiad-level performance in complex geometry problems.</p>
+</div>
+</article>
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Safety</div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Digital padlock icon securing a network of glowing nodes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTFIwP8cSBlmBT21mzLOh24D6oJnGIoe8xErHdTRtyt7pvJV4mdPArdrT4G2a02PNQj_ZMOstT9L-cxSCPpXLcgFHtkLOnQb3HOVjXFMmMn3mqJqSjGMnC8A-iStE07vf1zmAhRMmqPttCNRs0oCTWj1UzzMIt2oxxwlpB2sRrnXqOKWLkv8nKsd0ogR2C7OzK5YX-8PQXvk62w9EaMuDKyuih78JB1RuUHqra1kUf0dM41PO-S9U92YuHZ73mwGNdnV_nBA-gs1bM"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>2 days ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>OpenAI</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">OpenAI's new safety framework explained</h3>
+<p class="text-slate-400 text-sm line-clamp-2">A look at the new 'Preparedness' team and their mission to evaluate catastrophic risks.</p>
+</div>
+</article>
+<article class="group flex flex-col gap-3">
+<div class="w-full aspect-video rounded-lg overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold text-white z-10 border border-white/10">Mobile AI</div>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Close up of a modern smartphone showing AI assistant interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TnLbuChuirSMQ-AIRTinD2xbNpMdtl2NJ4UBV00HYQr67Ui5CrhiqWEBdeMw-xBeRVOObcg6bM9DIH2AAxObwAswooT66P3MIWnMSjt3E8LEoYcuyt3aMPw7g_XkeqZ69Va5pErtREPUMzGrl8jqs0dy66T-bfDfPVuTLLYS37f-UIt518LS9yLFaxZ5UWKvCncwwowpPTQaie6Bb5_BQlsPO937UkbTSnx0bSb-OpmobRKjUKs0juFRpwMM89syRJi1-kIF9lPI"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs text-slate-400">
+<span>3 days ago</span>
+<span class="w-1 h-1 rounded-full bg-slate-600"></span>
+<span>Apple</span>
+</div>
+<h3 class="text-lg font-bold leading-snug text-white group-hover:text-primary transition-colors">Apple integrates Gemini into iOS 18</h3>
+<p class="text-slate-400 text-sm line-clamp-2">The partnership brings advanced generative features to millions of iPhone users.</p>
+</div>
+</article>
+</div>
+</div>
+<aside class="w-full xl:w-[360px] flex flex-col gap-6 shrink-0">
+<div class="bg-card-dark border border-card-border rounded-xl p-6 flex flex-col gap-6">
+<div>
+<h3 class="text-xl font-bold text-white flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+                            Trending Now
+                        </h3>
+<p class="text-slate-400 text-sm">Most read stories this week.</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex gap-4 group cursor-pointer items-start">
+<div class="text-4xl font-black text-card-border group-hover:text-primary/50 transition-colors leading-none">01</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">public</span> Global
+                                </div>
+<h4 class="font-bold text-white group-hover:text-primary transition-colors leading-tight">The rise of Sovereign AI: Nations building their own compute clouds</h4>
+</div>
+</div>
+<div class="h-px bg-card-border w-full"></div>
+<div class="flex gap-4 group cursor-pointer items-start">
+<div class="text-4xl font-black text-card-border group-hover:text-primary/50 transition-colors leading-none">02</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">favorite</span> Health
+                                </div>
+<h4 class="font-bold text-white group-hover:text-primary transition-colors leading-tight">AI in Healthcare: Early cancer detection rates improve by 40%</h4>
+</div>
+</div>
+<div class="h-px bg-card-border w-full"></div>
+<div class="flex gap-4 group cursor-pointer items-start">
+<div class="text-4xl font-black text-card-border group-hover:text-primary/50 transition-colors leading-none">03</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">mic</span> Interview
+                                </div>
+<h4 class="font-bold text-white group-hover:text-primary transition-colors leading-tight">Interview: Sam Altman on AGI timeline and safety protocols</h4>
+</div>
+</div>
+<div class="h-px bg-card-border w-full"></div>
+<div class="flex gap-4 group cursor-pointer items-start">
+<div class="text-4xl font-black text-card-border group-hover:text-primary/50 transition-colors leading-none">04</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
+<span class="material-symbols-outlined text-[16px]">code</span> Dev
+                                 </div>
+<h4 class="font-bold text-white group-hover:text-primary transition-colors leading-tight">Python 4.0 rumors: What the community actually wants</h4>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary rounded-xl p-6 flex flex-col gap-4 text-center items-center relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
+<div class="relative z-10 flex flex-col items-center gap-2">
+<div class="size-12 bg-white/20 rounded-full flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-white text-[28px]">mail</span>
+</div>
+<h3 class="text-xl font-bold text-white">Stay Ahead of the Curve</h3>
+<p class="text-white/80 text-sm mb-2">Get the latest AI breakthroughs delivered to your inbox daily.</p>
+<div class="w-full flex flex-col gap-2">
+<input class="w-full h-10 rounded-lg border-0 bg-white/10 text-white placeholder-white/60 text-sm px-4 focus:ring-2 focus:ring-white" placeholder="Enter your email" type="email"/>
+<button class="w-full h-10 rounded-lg bg-white text-primary font-bold text-sm hover:bg-slate-100 transition-colors">Subscribe Free</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<footer class="border-t border-card-border bg-card-dark mt-10">
+<div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">neurology</span>
+<h2 class="text-lg font-bold text-white">AI Insider</h2>
+</div>
+<p class="text-slate-400 text-sm">© 2024 AI Insider. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-white transition-colors" href="#">About</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Terms</a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded-full bg-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="#">
+<span class="text-xs font-bold">X</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="#">
+<span class="text-xs font-bold">in</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all" href="#">
+<span class="text-xs font-bold">Fb</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>
