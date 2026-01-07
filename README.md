@@ -39,11 +39,18 @@ serve src
 ```
 
 ## AI Collection System
-The `collector.py` script performs the following:
-1. Scrapes AI-related RSS feeds.
-2. Extracts content using BeautifulSoup.
-3. Groups and categorizes content using keyword analysis.
-4. Stores data in `/src/js/data.json` for frontend consumption.
+The `collector.py` script now features **Deep Scraping** and **NLP Analysis**:
+1. Scrapes AIRSS feeds.
+2. Extracts full article text, top images, and summaries using `newspaper3k`.
+3. Intelligent categorization and expert-style formatting.
+4. Stores data in `js/data.json`.
+
+### Continuous Automation
+To run the platform in **24/7 Autonomous Mode** (fetching every hour):
+```bash
+source scripts/venv/bin/activate
+python3 -c "from scripts.collector import run_loop; run_loop()"
+```
 
 ## Deployment
 Published live via GitHub Pages at: `https://[username].github.io/AI_Insider`

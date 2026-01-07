@@ -5,6 +5,14 @@ from datetime import datetime
 import requests
 import feedparser
 from bs4 import BeautifulSoup
+from newspaper import Article
+import nltk
+
+# Essential for newspaper3k
+try:
+    nltk.data.find('tokenizers/punkt')
+except LookupError:
+    nltk.download('punkt')
 
 # Configuration
 CONFIG = {
@@ -32,36 +40,63 @@ def categorize(title, summary):
             return cat
     return "AI News"
 
+def scrape_full_article(url):
+    try:
+        article = Article(url)
+        article.download()
+        article.parse()
+        article.nlp()
+        return {
+            "full_text": article.text,
+            "summary": article.summary,
+            "top_image": article.top_image,
+            "keywords": article.keywords
+        }
+    except Exception as e:
+        print(f"[!] Error scraping {url}: {e}")
+        return None
+
 def fetch_content():
     articles = []
     print(f"[*] Starting collection at {datetime.now()}")
 
     for url in CONFIG["rss_feeds"]:
-        print(f"[*] Fetching: {url}")
+        print(f"[*] Processing Feed: {url}")
         feed = feedparser.parse(url)
         
-        for entry in feed.entries[:10]: # Limit to 10 per feed for demo
+        for entry in feed.entries[:5]: # Limit per feed for depth
             title = entry.get("title", "")
             link = entry.get("link", "")
-            summary = entry.get("summary", "")
-            published = entry.get("published", datetime.now().strftime("%Y-%m-%d"))
             
-            # Clean summary from HTML
-            soup = BeautifulSoup(summary, "html.parser")
-            clean_summary = soup.get_text()
+            # Scrape full depth
+            print(f"[*] Deep scraping: {title}")
+            scraped = scrape_full_article(link)
             
-            category = categorize(title, clean_summary)
+            if not scraped or not scraped["full_text"]:
+                continue
+
+            category = categorize(title, scraped["summary"])
             
-            # Create a mock professional article
+            # Professional human-like formatting
+            formatted_body = f"""
+                <p class="lead">{scraped['summary'].replace('\n', ' ')}</p>
+                <h3>Industry Analysis</h3>
+                <p>{scraped['full_text'][:1000].replace('\n', '</p><p>')}...</p>
+                <div class="my-6 p-6 bg-primary/5 border-l-4 border-primary rounded-r-xl">
+                    <h4 class="font-bold mb-2">Expert Take</h4>
+                    <p>The integration of these developments in {category} suggests a significant shift in how we approach AI architecture in 2026. This trend aligns with the broader industry move towards scaled autonomy.</p>
+                </div>
+            """
+            
             articles.append({
                 "id": str(int(time.time() * 1000) + len(articles)),
                 "title": title,
-                "subtitle": clean_summary[:150] + "...",
-                "body": f"Full coverage of '{title}' is being analyzed by our AI agents. This story involves major shifts in {category}...",
+                "subtitle": scraped["summary"][:200] + "...",
+                "body": formatted_body,
                 "category": category,
-                "author": "AI Collector",
-                "date": published,
-                "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200", # Fallback image
+                "author": "AI Intelligence Bot",
+                "date": entry.get("published", datetime.now().strftime("%Y-%m-%d")),
+                "image": scraped["top_image"] if scraped["top_image"] else "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200",
                 "source": link,
                 "status": "Published"
             })
@@ -69,6 +104,8 @@ def fetch_content():
     return articles
 
 def save_data(articles):
+    if not articles: return
+    
     # Load existing or start fresh
     if os.path.exists(CONFIG["db_path"]):
         with open(CONFIG["db_path"], "r") as f:
@@ -84,17 +121,30 @@ def save_data(articles):
     new_articles = [a for a in articles if a["title"] not in existing_titles]
     
     combined = new_articles + existing
-    # Keep only the latest 100
-    combined = combined[:100]
+    # Keep only the latest 200
+    combined = combined[:200]
 
     with open(CONFIG["db_path"], "w") as f:
         json.dump(combined, f, indent=4)
         
-    print(f"[+] Saved {len(new_articles)} new articles to {CONFIG['db_path']}")
+    print(f"[+] Ingested {len(new_articles)} new stories into the platform.")
+
+def run_loop():
+    while True:
+        try:
+            fetched = fetch_content()
+            save_data(fetched)
+            print("[*] Cycle complete. Sleeping for 1 hour...")
+            time.sleep(3600)
+        except Exception as e:
+            print(f"[!!] Loop Error: {e}")
+            time.sleep(60)
 
 if __name__ == "__main__":
     if not os.path.exists(os.path.dirname(CONFIG["db_path"])):
         os.makedirs(os.path.dirname(CONFIG["db_path"]))
-        
+    
+    # Run once for immediate update, then enter loop if desired
+    # For now, let's just make it run once but I'll provide the loop
     fetched = fetch_content()
     save_data(fetched)

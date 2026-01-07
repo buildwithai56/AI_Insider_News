@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>AI Insider - Premium AI News & Analysis</title>
     <!-- Meta Tags -->
-    <meta name="description" content="Decoding the future of intelligence. Stay updated with the latest AI breakthroughs, research, and tools.">
-    
+    <meta name="description"
+        content="Decoding the future of intelligence. Stay updated with the latest AI breakthroughs, research, and tools.">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans:wght@300..700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Noto+Sans:wght@300..700&display=swap"
+        rel="stylesheet" />
     <!-- Material Symbols -->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Theme Configuration -->
@@ -37,30 +42,55 @@
         }
     </script>
     <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #101622; }
-        ::-webkit-scrollbar-thumb { background: #232f48; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #2b6cee; }
-        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #101622;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #232f48;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b6cee;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden">
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display min-h-screen flex flex-col overflow-x-hidden">
     <!-- Navigation -->
-    <header class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-card-border bg-white/80 dark:bg-background-dark/80 glass-nav">
+    <header
+        class="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-card-border bg-white/80 dark:bg-background-dark/80 glass-nav">
         <div class="w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-8">
                 <a class="flex items-center gap-2 group" href="index.html">
-                    <div class="size-9 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/10">
+                    <div
+                        class="size-9 rounded-xl bg-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-lg shadow-primary/10">
                         <span class="material-symbols-outlined text-[24px]">neurology</span>
                     </div>
                     <h2 class="text-xl font-bold tracking-tight">AI Insider</h2>
                 </a>
                 <nav class="hidden lg:flex items-center gap-6">
-                    <a class="text-sm font-medium hover:text-primary transition-colors text-primary" href="index.html">Home</a>
-                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="categories/robotics.html">Robotics</a>
-                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="categories/machine-learning.html">Machine Learning</a>
-                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="categories/generative-ai.html">Generative AI</a>
-                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors" href="categories/policy.html">Policy</a>
+                    <a class="text-sm font-medium hover:text-primary transition-colors text-primary"
+                        href="index.html">Home</a>
+                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="categories/robotics.html">Robotics</a>
+                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="categories/machine-learning.html">Machine Learning</a>
+                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="categories/generative-ai.html">Generative AI</a>
+                    <a class="text-sm font-medium text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+                        href="categories/policy.html">Policy</a>
                 </nav>
             </div>
             <div class="flex items-center gap-4">
@@ -68,9 +98,12 @@
                     <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
                         <span class="material-symbols-outlined text-[20px]">search</span>
                     </div>
-                    <input id="site-search" class="h-10 w-64 bg-slate-100 dark:bg-card-border/50 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all border-none placeholder-slate-400" placeholder="Search news..." type="text"/>
+                    <input id="site-search"
+                        class="h-10 w-64 bg-slate-100 dark:bg-card-border/50 rounded-full pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all border-none placeholder-slate-400"
+                        placeholder="Search news..." type="text" />
                 </div>
-                <button class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
+                <button
+                    class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20 flex items-center gap-2">
                     <span>Subscribe</span>
                 </button>
             </div>
@@ -81,13 +114,18 @@
     <main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 flex flex-col gap-12">
         <!-- Hero Section -->
         <section class="w-full" id="featured-story">
-            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-card-dark rounded-3xl p-8 lg:p-12 border border-card-border overflow-hidden relative group">
-                <div class="absolute top-0 right-0 w-2/3 h-full bg-primary/10 blur-[150px] rounded-full pointer-events-none group-hover:bg-primary/20 transition-all duration-700"></div>
-                
+            <div
+                class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center bg-card-dark rounded-3xl p-8 lg:p-12 border border-card-border overflow-hidden relative group">
+                <div
+                    class="absolute top-0 right-0 w-2/3 h-full bg-primary/10 blur-[150px] rounded-full pointer-events-none group-hover:bg-primary/20 transition-all duration-700">
+                </div>
+
                 <div class="flex flex-col gap-6 flex-1 relative z-10 order-2 lg:order-1">
-                    <div class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary tracking-wider uppercase">
+                    <div
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary tracking-wider uppercase">
                         <span class="relative flex h-2.5 w-2.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
                         </span>
                         Breaking News
@@ -96,22 +134,28 @@
                         The Rise of Sovereign AI Compute Clouds
                     </h1>
                     <p class="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl">
-                        Nations are racing to build their own AI infrastructure, moving away from big tech dependency to ensure digital sovereignty and security.
+                        Nations are racing to build their own AI infrastructure, moving away from big tech dependency to
+                        ensure digital sovereignty and security.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-4">
-                        <a href="article.html" class="h-14 px-8 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold transition-all flex items-center gap-3 shadow-xl shadow-primary/25 border border-primary/20">
+                        <a href="article.html"
+                            class="h-14 px-8 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold transition-all flex items-center gap-3 shadow-xl shadow-primary/25 border border-primary/20">
                             Read Full Story
                             <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
                         </a>
-                        <button class="h-14 px-8 bg-white/5 border border-card-border hover:bg-white/10 text-white rounded-xl font-semibold transition-all backdrop-blur-sm">
+                        <button
+                            class="h-14 px-8 bg-white/5 border border-card-border hover:bg-white/10 text-white rounded-xl font-semibold transition-all backdrop-blur-sm">
                             Listen to Podcast
                         </button>
                     </div>
                 </div>
-                
-                <div class="w-full lg:w-[600px] xl:w-[700px] aspect-video lg:aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/80 order-1 lg:order-2 relative group-hover:shadow-primary/10 transition-shadow duration-500">
-                    <img alt="Sovereign AI infrastructure visualization" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark/60 to-transparent"></div>
+
+                <div
+                    class="w-full lg:w-[600px] xl:w-[700px] aspect-video lg:aspect-[16/10] rounded-2xl overflow-hidden shadow-2xl shadow-black/80 order-1 lg:order-2 relative group-hover:shadow-primary/10 transition-shadow duration-500 bg-black/20">
+                    <img alt="Sovereign AI infrastructure visualization"
+                        class="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
+                        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark/30 to-transparent"></div>
                 </div>
             </div>
         </section>
@@ -128,51 +172,69 @@
                         </h2>
                         <p class="text-slate-400 text-sm">Fresh perspectives on AI developments</p>
                     </div>
-                    <a class="text-sm font-bold text-primary hover:underline flex items-center gap-1 group" href="news.html">
-                        View Archive 
-                        <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">chevron_right</span>
+                    <a class="text-sm font-bold text-primary hover:underline flex items-center gap-1 group"
+                        href="news.html">
+                        View Archive
+                        <span
+                            class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">chevron_right</span>
                     </a>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="news-grid">
                     <!-- Article Card 1 -->
-                    <article class="group flex flex-col gap-4 bg-card-dark/30 p-4 rounded-2xl border border-card-border hover:border-primary/50 transition-all">
+                    <article
+                        class="group flex flex-col gap-4 bg-card-dark/30 p-4 rounded-2xl border border-card-border hover:border-primary/50 transition-all">
                         <div class="w-full aspect-video rounded-xl overflow-hidden relative overflow-hidden">
-                            <div class="absolute top-3 left-3 bg-primary/90 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-white z-10 uppercase tracking-widest">Hardware</div>
-                            <img alt="NVIDIA H200 chips" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1591815302525-756a9bcc3425?q=80&w=1000" />
+                            <div
+                                class="absolute top-3 left-3 bg-primary/90 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-white z-10 uppercase tracking-widest">
+                                Hardware</div>
+                            <img alt="NVIDIA H200 chips"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                src="https://images.unsplash.com/photo-1591815302525-756a9bcc3425?q=80&w=1000" />
                         </div>
                         <div class="flex flex-col gap-3 px-2">
-                            <div class="flex items-center gap-3 text-xs text-slate-500 font-medium font-body uppercase tracking-wider">
+                            <div
+                                class="flex items-center gap-3 text-xs text-slate-500 font-medium font-body uppercase tracking-wider">
                                 <span>3 hours ago</span>
                                 <span class="size-1 rounded-full bg-slate-700"></span>
                                 <span>Compute</span>
                             </div>
-                            <h3 class="text-xl font-bold leading-snug text-white group-hover:text-primary transition-colors decoration-primary/30 underline-offset-4 group-hover:underline">
+                            <h3
+                                class="text-xl font-bold leading-snug text-white group-hover:text-primary transition-colors decoration-primary/30 underline-offset-4 group-hover:underline">
                                 NVIDIA H200 Production Scaling: What It Means for Large Model Training
                             </h3>
                             <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                                New benchmarks show significant gains in inference throughput, potentially lowering the cost of running frontier models by 40%.
+                                New benchmarks show significant gains in inference throughput, potentially lowering the
+                                cost of running frontier models by 40%.
                             </p>
                         </div>
                     </article>
 
                     <!-- Article Card 2 -->
-                    <article class="group flex flex-col gap-4 bg-card-dark/30 p-4 rounded-2xl border border-card-border hover:border-primary/50 transition-all">
+                    <article
+                        class="group flex flex-col gap-4 bg-card-dark/30 p-4 rounded-2xl border border-card-border hover:border-primary/50 transition-all">
                         <div class="w-full aspect-video rounded-xl overflow-hidden relative">
-                            <div class="absolute top-3 left-3 bg-primary/90 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-white z-10 uppercase tracking-widest">Research</div>
-                            <img alt="Neural network graph" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1000" />
+                            <div
+                                class="absolute top-3 left-3 bg-primary/90 backdrop-blur-md px-3 py-1 rounded-lg text-[10px] font-bold text-white z-10 uppercase tracking-widest">
+                                Research</div>
+                            <img alt="Neural network graph"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?q=80&w=1000" />
                         </div>
                         <div class="flex flex-col gap-3 px-2">
-                            <div class="flex items-center gap-3 text-xs text-slate-500 font-medium font-body uppercase tracking-wider">
+                            <div
+                                class="flex items-center gap-3 text-xs text-slate-500 font-medium font-body uppercase tracking-wider">
                                 <span>6 hours ago</span>
                                 <span class="size-1 rounded-full bg-slate-700"></span>
                                 <span>Algorithms</span>
                             </div>
-                            <h3 class="text-xl font-bold leading-snug text-white group-hover:text-primary transition-colors decoration-primary/30 underline-offset-4 group-hover:underline">
+                            <h3
+                                class="text-xl font-bold leading-snug text-white group-hover:text-primary transition-colors decoration-primary/30 underline-offset-4 group-hover:underline">
                                 Sparse Transformers: Breaking the Context Window Barrier
                             </h3>
                             <p class="text-slate-400 text-sm leading-relaxed line-clamp-2">
-                                Researchers have unveiled a new attention mechanism that scales linearly with context length, enabling 1M+ token processing.
+                                Researchers have unveiled a new attention mechanism that scales linearly with context
+                                length, enabling 1M+ token processing.
                             </p>
                         </div>
                     </article>
@@ -189,47 +251,70 @@
                     </h3>
                     <div class="flex flex-col gap-6">
                         <div class="flex gap-4 group cursor-pointer items-start">
-                            <span class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">01</span>
+                            <span
+                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">01</span>
                             <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Policy</span>
-                                <h4 class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">EU AI Act: Final implementation guidelines released for 2024</h4>
+                                <span
+                                    class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Policy</span>
+                                <h4
+                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
+                                    EU AI Act: Final implementation guidelines released for 2024</h4>
                             </div>
                         </div>
                         <div class="h-px bg-card-border w-full"></div>
                         <div class="flex gap-4 group cursor-pointer items-start">
-                            <span class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">02</span>
+                            <span
+                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">02</span>
                             <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Open Source</span>
-                                <h4 class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">Mistral Next: Internal testing leaks show GPT-4 level logic</h4>
+                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Open
+                                    Source</span>
+                                <h4
+                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
+                                    Mistral Next: Internal testing leaks show GPT-4 level logic</h4>
                             </div>
                         </div>
                         <div class="h-px bg-card-border w-full"></div>
                         <div class="flex gap-4 group cursor-pointer items-start">
-                            <span class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">03</span>
+                            <span
+                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">03</span>
                             <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Robotics</span>
-                                <h4 class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">Figure 02 Humanoid achieves 99% task success in warehouse</h4>
+                                <span
+                                    class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Robotics</span>
+                                <h4
+                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
+                                    Figure 02 Humanoid achieves 99% task success in warehouse</h4>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Newsletter Box -->
-                <div class="bg-primary rounded-2xl p-8 flex flex-col gap-6 text-center items-center relative overflow-hidden group">
-                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay"></div>
-                    <div class="absolute -bottom-4 -right-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-500"></div>
-                    
+                <div
+                    class="bg-primary rounded-2xl p-8 flex flex-col gap-6 text-center items-center relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay">
+                    </div>
+                    <div
+                        class="absolute -bottom-4 -right-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-500">
+                    </div>
+
                     <div class="relative z-10 flex flex-col items-center gap-4">
-                        <div class="size-16 bg-white/20 rounded-2xl flex items-center justify-center mb-2 shadow-inner border border-white/20 backdrop-blur-md">
+                        <div
+                            class="size-16 bg-white/20 rounded-2xl flex items-center justify-center mb-2 shadow-inner border border-white/20 backdrop-blur-md">
                             <span class="material-symbols-outlined text-white text-[32px]">mark_email_read</span>
                         </div>
                         <div>
                             <h3 class="text-2xl font-bold text-white leading-tight">Stay Ahead of the Curve</h3>
-                            <p class="text-blue-100/80 text-sm mt-2">Get the latest AI breakthroughs delivered to your inbox daily.</p>
+                            <p class="text-blue-100/80 text-sm mt-2">Get the latest AI breakthroughs delivered to your
+                                inbox daily.</p>
                         </div>
                         <form class="w-full flex flex-col gap-3">
-                            <input class="w-full h-12 rounded-xl border-0 bg-white/10 text-white placeholder-white/60 text-sm px-5 focus:ring-2 focus:ring-white transition-all backdrop-blur-sm" placeholder="Enter your email" type="email" required/>
-                            <button class="w-full h-12 rounded-xl bg-white text-primary font-bold text-sm hover:bg-slate-50 transition-all shadow-lg shadow-black/10 active:scale-95">Subscribe Free</button>
+                            <input
+                                class="w-full h-12 rounded-xl border-0 bg-white/10 text-white placeholder-white/60 text-sm px-5 focus:ring-2 focus:ring-white transition-all backdrop-blur-sm"
+                                placeholder="Enter your email" type="email" required />
+                            <button
+                                class="w-full h-12 rounded-xl bg-white text-primary font-bold text-sm hover:bg-slate-50 transition-all shadow-lg shadow-black/10 active:scale-95">Subscribe
+                                Free</button>
                         </form>
                     </div>
                 </div>
@@ -249,18 +334,21 @@
                         <h2 class="text-xl font-bold text-white">AI Insider</h2>
                     </a>
                     <p class="text-slate-400 text-sm leading-relaxed">
-                        The world's leading source for AI news, research analysis, and product reviews. Built for the future of intelligence.
+                        The world's leading source for AI news, research analysis, and product reviews. Built for the
+                        future of intelligence.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
+                        <a href="#"
+                            class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
                             <span class="text-sm font-bold">X</span>
                         </a>
-                        <a href="#" class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
+                        <a href="#"
+                            class="size-10 rounded-xl bg-card-dark border border-card-border flex items-center justify-center text-slate-400 hover:text-white hover:bg-primary transition-all">
                             <span class="text-sm font-bold">In</span>
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
                     <h4 class="text-white font-bold mb-6">Categories</h4>
                     <ul class="flex flex-col gap-3 text-sm text-slate-400">
@@ -291,7 +379,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="pt-8 border-t border-card-border flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-slate-500 text-xs">© 2026 AI Insider News. All rights reserved.</p>
                 <div class="flex gap-8 text-xs text-slate-500">
@@ -301,7 +389,8 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="js/main.js"></script>
 </body>
+
 </html>
