@@ -98,6 +98,15 @@
             height: auto;
             border-radius: 1rem;
         }
+
+        h1,
+        h2,
+        h3,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
     </style>
 </head>
 
@@ -136,9 +145,9 @@
     </header>
 
     <main
-        class="w-full max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-12">
+        class="w-full max-w-[1240px] mx-auto px-4 md:px-6 lg:px-8 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] gap-12 overflow-hidden">
         <!-- Content Area -->
-        <article class="flex flex-col gap-8">
+        <article class="flex flex-col gap-8 min-w-0 overflow-hidden">
             <!-- Breadcrumbs -->
             <nav class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
                 <a href="index.html" class="hover:text-primary">Home</a>
@@ -149,8 +158,8 @@
             </nav>
 
             <!-- Title Section -->
-            <div class="flex flex-col gap-6">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] text-white"
+            <div class="flex flex-col gap-6 min-w-0 overflow-hidden">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] text-white break-words w-full"
                     id="article-title">
                     The Future of Generative Models in Healthcare: A Deep Dive
                 </h1>

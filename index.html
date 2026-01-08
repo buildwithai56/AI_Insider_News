@@ -63,6 +63,15 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+
+        h1,
+        h2,
+        h3,
+        p {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
     </style>
 </head>
 
@@ -111,7 +120,7 @@
     </header>
 
     <!-- Main Layout -->
-    <main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 flex flex-col gap-12">
+    <main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 flex flex-col gap-12 overflow-hidden">
         <!-- Hero Section -->
         <section class="w-full" id="featured-story">
             <div
@@ -120,7 +129,7 @@
                     class="absolute top-0 right-0 w-2/3 h-full bg-primary/10 blur-[150px] rounded-full pointer-events-none group-hover:bg-primary/20 transition-all duration-700">
                 </div>
 
-                <div class="flex flex-col gap-6 flex-1 relative z-10 order-2 lg:order-1">
+                <div class="flex flex-col gap-6 flex-1 relative z-10 order-2 lg:order-1 min-w-0 overflow-hidden">
                     <div
                         class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold text-primary tracking-wider uppercase">
                         <span class="relative flex h-2.5 w-2.5">
@@ -131,10 +140,11 @@
                         Breaking News
                     </div>
                     <h1
-                        class="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-2 break-words">
+                        class="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white mb-2 break-words w-full">
                         The Rise of Sovereign AI Compute Clouds
                     </h1>
-                    <p class="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl break-words">
+                    <p
+                        class="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-2xl break-words w-full">
                         Nations are racing to build their own AI infrastructure, moving away from big tech dependency to
                         ensure digital sovereignty and security.
                     </p>
@@ -162,7 +172,7 @@
         </section>
 
         <!-- Two Column Content Grid -->
-        <div class="grid grid-cols-1 xl:grid-cols-[1fr_360px] gap-12">
+        <div class="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-12">
             <!-- Latest News Feed -->
             <section class="flex flex-col gap-8">
                 <div class="flex items-center justify-between border-b border-card-border pb-6">
