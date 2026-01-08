@@ -72,6 +72,21 @@
             word-wrap: break-word;
             hyphens: auto;
         }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: inline-flex;
+            animation: marquee 40s linear infinite;
+        }
     </style>
 </head>
 
@@ -118,6 +133,16 @@
             </div>
         </div>
     </header>
+
+    <!-- News Ticker -->
+    <div class="bg-primary/5 border-b border-card-border py-2.5 overflow-hidden whitespace-nowrap">
+        <div class="animate-marquee flex gap-12 text-[10px] font-bold uppercase tracking-[0.2em] text-primary/70">
+            <span>Market Update: NVIDIA +4.2% • OpenAI reveals Sora APIs • DeepSeek-R1 performance matches O1 • Apple
+                shifts to local LLMs • Mistral Next Leaked • Midjourney V7 teased</span>
+            <span>Market Update: NVIDIA +4.2% • OpenAI reveals Sora APIs • DeepSeek-R1 performance matches O1 • Apple
+                shifts to local LLMs • Mistral Next Leaked • Midjourney V7 teased</span>
+        </div>
+    </div>
 
     <!-- Main Layout -->
     <main class="flex-1 w-full max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-8 flex flex-col gap-12 overflow-hidden">
@@ -254,46 +279,54 @@
 
             <!-- Sidebar -->
             <aside class="flex flex-col gap-8">
+                <!-- AI Tool of the Week -->
+                <div
+                    class="bg-gradient-to-br from-indigo-500/10 to-transparent border border-indigo-500/20 rounded-2xl p-6 relative overflow-hidden group hover:border-indigo-500/40 transition-all shadow-xl shadow-indigo-500/5">
+                    <div
+                        class="absolute top-0 right-0 px-3 py-1 bg-indigo-500 text-[10px] font-black uppercase text-white rounded-bl-xl tracking-tighter">
+                        Featured</div>
+                    <div class="flex items-center gap-4 mb-4">
+                        <div
+                            class="size-12 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-500">
+                            <span class="material-symbols-outlined text-[28px]">search_insights</span>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-lg">Perplexity AI</h4>
+                            <p class="text-indigo-400 text-[10px] font-bold uppercase tracking-widest">Search Reimagined
+                            </p>
+                        </div>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        The ultimate answer engine. Skips the SEO spam to give you direct, cited answers to any complex
+                        query.
+                    </p>
+                    <a href="https://perplexity.ai" target="_blank"
+                        class="w-full flex items-center justify-center gap-2 py-3 bg-white text-black font-bold text-xs rounded-xl hover:bg-slate-200 transition-all shadow-xl shadow-black/10">
+                        Try Pro Demo
+                        <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                    </a>
+                </div>
+
                 <!-- Trending Widget -->
                 <div class="bg-card-dark border border-card-border rounded-2xl p-6 shadow-xl">
                     <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
                         <span class="material-symbols-outlined text-primary">trending_up</span>
                         Trending Now
                     </h3>
-                    <div class="flex flex-col gap-6">
-                        <div class="flex gap-4 group cursor-pointer items-start">
-                            <span
-                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">01</span>
-                            <div class="flex flex-col gap-1">
-                                <span
-                                    class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Policy</span>
-                                <h4
-                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
-                                    EU AI Act: Final implementation guidelines released for 2024</h4>
+                    <div class="flex flex-col gap-6" id="trending-list">
+                        <!-- Trending items injected by main.js -->
+                        <div class="animate-pulse flex gap-4 items-center">
+                            <div class="text-3xl font-black text-slate-800">01</div>
+                            <div class="flex-1 space-y-2">
+                                <div class="h-2 bg-card-border rounded w-1/4"></div>
+                                <div class="h-4 bg-card-border rounded w-full"></div>
                             </div>
                         </div>
-                        <div class="h-px bg-card-border w-full"></div>
-                        <div class="flex gap-4 group cursor-pointer items-start">
-                            <span
-                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">02</span>
-                            <div class="flex flex-col gap-1">
-                                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Open
-                                    Source</span>
-                                <h4
-                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
-                                    Mistral Next: Internal testing leaks show GPT-4 level logic</h4>
-                            </div>
-                        </div>
-                        <div class="h-px bg-card-border w-full"></div>
-                        <div class="flex gap-4 group cursor-pointer items-start">
-                            <span
-                                class="text-3xl font-black text-slate-800 group-hover:text-primary/40 transition-colors leading-none">03</span>
-                            <div class="flex flex-col gap-1">
-                                <span
-                                    class="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Robotics</span>
-                                <h4
-                                    class="font-bold text-white text-sm group-hover:text-primary transition-colors leading-tight">
-                                    Figure 02 Humanoid achieves 99% task success in warehouse</h4>
+                        <div class="animate-pulse flex gap-4 items-center">
+                            <div class="text-3xl font-black text-slate-800">02</div>
+                            <div class="flex-1 space-y-2">
+                                <div class="h-2 bg-card-border rounded w-1/4"></div>
+                                <div class="h-4 bg-card-border rounded w-full"></div>
                             </div>
                         </div>
                     </div>
@@ -301,32 +334,39 @@
 
                 <!-- Newsletter Box -->
                 <div
-                    class="bg-primary rounded-2xl p-8 flex flex-col gap-6 text-center items-center relative overflow-hidden group">
-                    <div
-                        class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 mix-blend-overlay">
-                    </div>
-                    <div
-                        class="absolute -bottom-4 -right-4 size-32 bg-white/10 rounded-full blur-3xl group-hover:bg-white/20 transition-all duration-500">
-                    </div>
-
-                    <div class="relative z-10 flex flex-col items-center gap-4">
+                    class="bg-gradient-to-br from-primary/30 via-slate-900 to-black border border-primary/20 rounded-3xl p-8 relative overflow-hidden group">
+                    <div class="relative z-10">
                         <div
-                            class="size-16 bg-white/20 rounded-2xl flex items-center justify-center mb-2 shadow-inner border border-white/20 backdrop-blur-md">
-                            <span class="material-symbols-outlined text-white text-[32px]">mark_email_read</span>
+                            class="size-14 bg-primary/20 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-xl shadow-primary/10">
+                            <span class="material-symbols-outlined text-[30px]">rocket_launch</span>
                         </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white leading-tight">Stay Ahead of the Curve</h3>
-                            <p class="text-blue-100/80 text-sm mt-2">Get the latest AI breakthroughs delivered to your
-                                inbox daily.</p>
-                        </div>
-                        <form class="w-full flex flex-col gap-3">
-                            <input
-                                class="w-full h-12 rounded-xl border-0 bg-white/10 text-white placeholder-white/60 text-sm px-5 focus:ring-2 focus:ring-white transition-all backdrop-blur-sm"
-                                placeholder="Enter your email" type="email" required />
+                        <h3 class="text-2xl font-bold text-white mb-4">The AI Dispatch</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                            Join 50k+ readers. Get a 5-minute summary of the latest AI breakthroughs delivered to your
+                            inbox weekly.
+                        </p>
+                        <form class="flex flex-col gap-4">
+                            <div class="relative">
+                                <span
+                                    class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-[20px]">mail</span>
+                                <input type="email" placeholder="Email address"
+                                    class="w-full bg-slate-950/50 border border-card-border rounded-xl py-4 pl-12 pr-4 text-white placeholder:text-slate-600 focus:border-primary outline-none transition-all focus:ring-1 focus:ring-primary/30" />
+                            </div>
                             <button
-                                class="w-full h-12 rounded-xl bg-white text-primary font-bold text-sm hover:bg-slate-50 transition-all shadow-lg shadow-black/10 active:scale-95">Subscribe
-                                Free</button>
+                                class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-xl shadow-primary/25 active:scale-[0.98] flex items-center justify-center gap-2">
+                                <span>Subscribe Free</span>
+                                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                            </button>
                         </form>
+                        <div
+                            class="flex items-center gap-2 mt-6 text-[10px] text-slate-500 font-medium uppercase tracking-widest">
+                            <span class="material-symbols-outlined text-[14px] text-green-500">verified</span>
+                            Secure & Privacy Focused
+                        </div>
+                    </div>
+                    <!-- Decorative blur -->
+                    <div
+                        class="absolute -right-20 -bottom-20 size-60 bg-primary/10 blur-[100px] rounded-full pointer-events-none group-hover:bg-primary/20 transition-all duration-700">
                     </div>
                 </div>
             </aside>

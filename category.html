@@ -78,8 +78,18 @@
                 <a class="text-sm font-medium text-slate-400 hover:text-primary transition-colors"
                     href="category.html?type=Safety & Ethics">Safety & Ethics</a>
             </nav>
-            <button
-                class="hidden sm:block h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all">Subscribe</button>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex relative group">
+                    <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </div>
+                    <input id="site-search"
+                        class="h-10 w-48 lg:w-64 bg-card-border/30 rounded-full pl-10 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all border-none placeholder-slate-500 text-white"
+                        placeholder="Search news..." type="text" />
+                </div>
+                <button
+                    class="hidden sm:block h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold shadow-lg shadow-primary/20 transition-all active:scale-95">Subscribe</button>
+            </div>
         </div>
     </header>
 

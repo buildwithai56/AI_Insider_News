@@ -22,10 +22,10 @@ CONFIG = {
         "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml"
     ],
     "keywords": {
-        "Robotics": ["robot", "humanoid", "boston dynamics", "tesla bot"],
-        "Machine Learning": ["neural network", "transformer", "sparse", "training", "compute"],
-        "Generative AI": ["llm", "gpt", "claude", "stable diffusion", "midjourney", "sora"],
-        "Safety & Ethics": ["regulation", "act", "ethics", "law", "policy", "safety", "alignment", "bias", "fairness"]
+        "Robotics": ["robot", "humanoid", "boston dynamics", "tesla bot", "unitree", "manipulation", "prosthetic", "autonomous vehicle", "drone"],
+        "Machine Learning": ["neural network", "transformer", "sparse", "training", "compute", "backpropagation", "gradient", "pytorch", "tensorflow"],
+        "Generative AI": ["llm", "gpt", "claude", "stable diffusion", "midjourney", "sora", "generative", "hallucination", "prompt"],
+        "Safety & Ethics": ["regulation", "act", "ethics", "law", "policy", "safety", "alignment", "bias", "fairness", "privacy", "copyright", "lawsuit", "governance"]
     },
     "db_path": os.path.join(os.path.dirname(__file__), "../js/data.json")
 }
@@ -144,7 +144,5 @@ if __name__ == "__main__":
     if not os.path.exists(os.path.dirname(CONFIG["db_path"])):
         os.makedirs(os.path.dirname(CONFIG["db_path"]))
     
-    # Run once for immediate update, then enter loop if desired
-    # For now, let's just make it run once but I'll provide the loop
-    fetched = fetch_content()
-    save_data(fetched)
+    # Enter the autonomous run loop
+    run_loop()

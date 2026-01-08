@@ -136,8 +136,16 @@
                 </nav>
             </div>
             <div class="flex items-center gap-4">
+                <div class="hidden md:flex relative group">
+                    <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+                        <span class="material-symbols-outlined text-[20px]">search</span>
+                    </div>
+                    <input id="site-search"
+                        class="h-10 w-48 lg:w-64 bg-card-border/30 rounded-full pl-10 pr-4 text-xs focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all border-none placeholder-slate-500 text-white"
+                        placeholder="Search news..." type="text" />
+                </div>
                 <button
-                    class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20">
+                    class="h-10 px-6 bg-primary hover:bg-primary/90 rounded-full text-white text-sm font-bold transition-all shadow-lg shadow-primary/20 active:scale-95">
                     Subscribe
                 </button>
             </div>
@@ -178,14 +186,14 @@
                         </div>
                     </div>
                     <div class="hidden sm:block w-px h-8 bg-card-border"></div>
-                    <div class="flex items-center gap-6 text-slate-500 text-sm font-medium">
+                    <div class="flex items-center gap-6 text-slate-500 text-sm font-medium article-meta">
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[18px]">calendar_today</span>
-                            <span>Oct 24, 2023</span>
+                            <span>Loading...</span>
                         </div>
                         <div class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[18px]">schedule</span>
-                            <span>8 min read</span>
+                            <span>... min read</span>
                         </div>
                     </div>
                     <div class="flex items-center gap-4 ml-auto">
@@ -286,26 +294,12 @@
                     class="text-sm font-bold text-slate-500 uppercase tracking-[0.2em] border-b border-card-border pb-4">
                     Read Next</h3>
 
-                <div class="flex flex-col gap-6">
-                    <a href="#" class="group flex flex-col gap-3">
-                        <div class="w-full aspect-[16/9] rounded-xl overflow-hidden border border-card-border">
-                            <img src="https://images.unsplash.com/photo-1620712943543-bcc4628c9757?q=80&w=800"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                        <h4 class="font-bold text-white group-hover:text-primary transition-colors leading-snug">
-                            NVIDIA H200: Architecture changes that change the game
-                        </h4>
-                    </a>
-
-                    <a href="#" class="group flex flex-col gap-3">
-                        <div class="w-full aspect-[16/9] rounded-xl overflow-hidden border border-card-border">
-                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                        </div>
-                        <h4 class="font-bold text-white group-hover:text-primary transition-colors leading-snug">
-                            The ethics of synthetic data in clinical trials
-                        </h4>
-                    </a>
+                <div class="flex flex-col gap-6 related-stories-grid">
+                    <!-- Related stories will be injected here by main.js -->
+                    <div class="animate-pulse flex flex-col gap-4">
+                        <div class="w-full aspect-[16/9] bg-card-border rounded-xl"></div>
+                        <div class="h-4 bg-card-border rounded w-3/4"></div>
+                    </div>
                 </div>
             </div>
         </aside>
