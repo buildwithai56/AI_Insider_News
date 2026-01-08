@@ -1,4 +1,154 @@
+const translations = {
+    en: {
+        nav_home: "Home",
+        nav_ml: "Machine Learning",
+        nav_genai: "Generative AI",
+        nav_robotics: "Robotics",
+        nav_ethics: "Safety & Ethics",
+        search_placeholder: "Search AI news...",
+        subscribe: "Subscribe",
+        breaking_news: "Breaking News",
+        read_story: "Read Full Story",
+        podcast: "Listen to Podcast",
+        latest_news: "Latest News",
+        trending: "Trending Now",
+        newsletter_title: "The AI Dispatch",
+        newsletter_desc: "Join 50k+ readers. Get a 5-minute summary of the latest AI breakthroughs.",
+        featured: "Featured",
+        read_next: "Read Next",
+        summary_title: "Executive Summary",
+        source_title: "Original Source",
+        view_original: "Read on the original website",
+        footer_desc: "The world's leading source for AI news, research analysis, and product reviews.",
+        categories: "Categories",
+        resources: "Resources",
+        support: "Support",
+        min_read: "min read",
+        published: "Published",
+        by: "By"
+    },
+    ne: {
+        nav_home: "गृहपृष्ठ",
+        nav_ml: "मेसिन लर्निङ",
+        nav_genai: "जेनेरेटिभ एआई",
+        nav_robotics: "रोबोटिक्स",
+        nav_ethics: "सुरक्षा र नैतिकता",
+        search_placeholder: "एआई समाचार खोज्नुहोस्...",
+        subscribe: "सदस्यता लिनुहोस्",
+        breaking_news: "ताजा समाचार",
+        read_story: "पूरा कथा पढ्नुहोस्",
+        podcast: "पडकास्ट सुन्नुहोस्",
+        latest_news: "पछिल्लो समाचार",
+        trending: "अहिलेको चर्चा",
+        newsletter_title: "एआई डिस्प्याच",
+        newsletter_desc: "५० हजार+ पाठकहरूमा सामेल हुनुहोस्। एआईका नवीनतम सफलताहरूको ५ मिनेटको सारांश पाउनुहोस्।",
+        featured: "विशेष",
+        read_next: "थप पढ्नुहोस्",
+        summary_title: "कार्यकारी सारांश",
+        source_title: "मूल स्रोत",
+        view_original: "मूल वेबसाइटमा पढ्नुहोस्",
+        footer_desc: "एआई समाचार, अनुसन्धान विश्लेषण, र उत्पादन समीक्षाहरूको लागि संसारको अग्रणी स्रोत।",
+        categories: "विधाहरू",
+        resources: "स्रोतहरू",
+        support: "सहयोग",
+        min_read: "मिनेट पढाइ",
+        published: "प्रकाशित",
+        by: "द्वारा"
+    },
+    hi: {
+        nav_home: "होम",
+        nav_ml: "मशीन लर्निंग",
+        nav_genai: "जेनरेटिव एआई",
+        nav_robotics: "रोबोटिक्स",
+        nav_ethics: "सुरक्षा और नैतिकता",
+        search_placeholder: "एआई समाचार खोजें...",
+        subscribe: "सदस्यता लें",
+        breaking_news: "ब्रेकिंग न्यूज़",
+        read_story: "पूरी कहानी पढ़ें",
+        podcast: "पॉडकास्ट सुनें",
+        latest_news: "ताज़ा खबरें",
+        trending: "ट्रेंडिंग",
+        newsletter_title: "एआई डिस्पैच",
+        newsletter_desc: "50k+ पाठकों से जुड़ें। एआई की नवीनतम सफलताओं का 5 मिनट का सारांश प्राप्त करें।",
+        featured: "विशेष",
+        read_next: "आगे पढ़ें",
+        summary_title: "कार्यकारी सारांश",
+        source_title: "मूल स्रोत",
+        view_original: "मूल वेबसाइट पर पढ़ें",
+        footer_desc: "एआई समाचार, अनुसंधान विश्लेषण और उत्पाद समीक्षाओं के लिए दुनिया का अग्रणी स्रोत।",
+        categories: "श्रेणियाँ",
+        resources: "संसाधन",
+        support: "सहायता",
+        min_read: "मिनट पढ़ाई",
+        published: "प्रकाशित",
+        by: "द्वारा"
+    }
+};
+
+let currentLang = localStorage.getItem('site-lang') || 'en';
+
+function updateUI() {
+    const t = translations[currentLang];
+
+    // Selectors for elements that need translation
+    document.querySelectorAll('[data-t]').forEach(el => {
+        const key = el.getAttribute('data-t');
+        if (t[key]) {
+            if (el.tagName === 'INPUT') {
+                el.placeholder = t[key];
+            } else {
+                el.textContent = t[key];
+            }
+        }
+    });
+
+    document.documentElement.lang = currentLang;
+}
+
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('site-lang', lang);
+    updateUI();
+    // Re-render dynamic content if needed, or just reload for simplicity
+    location.reload();
+}
+
+// Theme Logic
+function initTheme() {
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+    } else {
+        document.documentElement.classList.add('dark');
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
+    initTheme();
+    updateUI();
+
+    // Theme toggle listener
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.onclick = toggleTheme;
+
+    // Lang toggle listener
+    const langSelect = document.getElementById('lang-select');
+    if (langSelect) {
+        langSelect.value = currentLang;
+        langSelect.onchange = (e) => setLanguage(e.target.value);
+    }
+
     const newsGrid = document.getElementById('news-grid');
     const featuredStory = document.getElementById('featured-story');
 
@@ -107,7 +257,7 @@ function createNewsCard(item, isFirst = false) {
             <div class="flex items-center gap-3 text-xs text-slate-500 font-medium font-body uppercase tracking-wider">
                 <span>${formatDate(item.date)}</span>
                 <span class="size-1 rounded-full bg-slate-700"></span>
-                <span>${readingTime} min read</span>
+                <span>${readingTime} ${translations[currentLang].min_read}</span>
             </div>
             <h3 class="${isFirst ? 'text-2xl md:text-3xl' : 'text-xl'} font-bold leading-snug text-white group-hover:text-primary transition-colors decoration-primary/30 underline-offset-4 group-hover:underline">
                 <a href="article.html?id=${item.id}">${item.title}</a>
@@ -167,11 +317,11 @@ if (window.location.pathname.includes('article.html')) {
                     const metaEl = document.querySelector('.article-meta');
                     if (metaEl) {
                         metaEl.innerHTML = `
-                            <span>Published ${formatDate(article.date)}</span>
+                            <span>${translations[currentLang].published} ${formatDate(article.date)}</span>
                             <span class="size-1 rounded-full bg-slate-700"></span>
-                            <span>${readingTime} min read</span>
+                            <span>${readingTime} ${translations[currentLang].min_read}</span>
                             <span class="size-1 rounded-full bg-slate-700"></span>
-                            <span>By ${article.author || 'AI Insider Staff'}</span>
+                            <span>${translations[currentLang].by} ${article.author || 'AI Insider Staff'}</span>
                         `;
                     }
 
@@ -183,16 +333,16 @@ if (window.location.pathname.includes('article.html')) {
                         bodyEl.innerHTML = `
                             <div class="prose prose-invert max-w-none">
                                 <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-xl mb-8">
-                                    <h4 class="text-primary font-bold uppercase tracking-wider text-xs mb-2">Executive Summary</h4>
+                                    <h4 class="text-primary font-bold uppercase tracking-wider text-xs mb-2">${translations[currentLang].summary_title}</h4>
                                     <p class="text-lg text-slate-200 font-medium leading-relaxed">${article.subtitle}</p>
                                 </div>
                                 <div class="space-y-6 text-slate-300">
                                     ${article.body.split('\n\n').map(p => `<p class="leading-relaxed text-lg">${p}</p>`).join('')}
                                 </div>
                                 <div class="mt-12 pt-8 border-t border-card-border">
-                                    <h4 class="text-white font-bold mb-4">Original Source</h4>
+                                    <h4 class="text-white font-bold mb-4">${translations[currentLang].source_title}</h4>
                                     <a href="${article.source}" target="_blank" class="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors">
-                                        Read on the original website
+                                        ${translations[currentLang].view_original}
                                         <span class="material-symbols-outlined text-sm">open_in_new</span>
                                     </a>
                                 </div>
